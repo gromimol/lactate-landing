@@ -27,7 +27,7 @@
                             Training Endurance вместе Eaglenos Inc
                         </p>
 
-                        <div class="first-screen__options__list">
+                        <div class="first-screen__options__list hide-mobile">
                             <div class="options__list__item">
                                 <div class="icon">
                                     <svg><use href="#icon-stopwatch" /></svg>
@@ -91,7 +91,7 @@
                         </div>
                     </div>
                     <div class="first-screen__prices">
-                        <div class="first-screen__prices__header">
+                        <div class="first-screen__prices__header hide-mobile">
                             <p>
                                 Измерил — увидел на графике тренировки.
                             </p>
@@ -117,6 +117,61 @@
                             <div class="first-screen__prices__notice">
                                 <div class="h5">Месяц PRO в ТЕ бесплатно </div>
                                 <p>при покупке лактометра</p>
+                            </div>
+                        </div>
+
+                        <div class="first-screen__options__list show-mobile">
+                            <div class="options__list__item">
+                                <div class="icon">
+                                    <svg><use href="#icon-stopwatch" /></svg>
+                                </div>
+                                <div class="options__list__item__content">
+                                    <div class="options__list__item__title">
+                                        10 секунд
+                                    </div>
+                                    <div class="options__list__item__description">
+                                        результат на экране
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="options__list__item">
+                                <div class="icon">
+                                    <svg><use href="#icon-drop" /></svg>
+                                </div>
+                                <div class="options__list__item__content">
+                                    <div class="options__list__item__title">
+                                        0.8 мкл
+                                    </div>
+                                    <div class="options__list__item__description">
+                                        микрокапля материала
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="options__list__item">
+                                <div class="icon">
+                                    <svg><use href="#icon-bluetooth" /></svg>
+                                </div>
+                                <div class="options__list__item__content">
+                                    <div class="options__list__item__title">
+                                        Bluetooth
+                                    </div>
+                                    <div class="options__list__item__description">
+                                        Синхронизация с ТЕ
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="options__list__item">
+                                <div class="icon">
+                                    <svg><use href="#icon-menu" /></svg>
+                                </div>
+                                <div class="options__list__item__content">
+                                    <div class="options__list__item__title">
+                                        Зоны лактата
+                                    </div>
+                                    <div class="options__list__item__description">
+                                        Настраиваемые зоны
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -205,7 +260,12 @@
                           Улучшенное <br />железо
                       </div>
                       <div class="features__grid__item__img">
-                          <img src="images/chip.webp" alt="Чип" loading="lazy">
+                          <div class="features__grid__item__img">
+                              <picture>
+                                  <source media="(max-width: 810px)" srcset="images/chip_mobile.webp">
+                                  <img src="images/chip.webp" alt="Чип" loading="lazy">
+                              </picture>
+                          </div>
                       </div>
                       <div class="features__grid__item__grid">
                           <p>Адаптивные датчики температуры</p>
@@ -236,6 +296,9 @@
                       <div class="h4">
                           Интерфейс созданный для спортсменов
                       </div>
+                      <div class="interface__img show-mobile">
+                          <img src="images/notebook_mobile.webp" alt="Ноутбук" loading="lazy">
+                      </div>
                       <div class="interface__description__block">
                           <p>
                               Определяй свои зоны, проходи тесты в&nbsp;нашем приложении Training Endurance, выставляй зоны в&nbsp;устройстве и&nbsp;контролируй свои тренировки, как никогда точно.
@@ -249,7 +312,7 @@
                           </div>
                       </div>
                   </div>
-                  <div class="interface__img">
+                  <div class="interface__img hide-mobile">
                       <img src="images/notebook.webp" alt="Ноутбук" loading="lazy">
                   </div>
               </div>
@@ -290,7 +353,7 @@
       <div class="why-lactate">
           <div class="container">
               <div class="why-lactate__description">
-                  <div class="why-lactate__description__item">
+                  <div class="why-lactate__description__item hide-mobile">
                       <div class="h2">
                           Почему лактат <span class="red">точнее пульса</span>
                       </div>
@@ -368,7 +431,7 @@
           <div class="container">
               <div class="posts__header">
                   <div class="h2">Статьи</div>
-                  <div class="posts__arrows">
+                  <div class="posts__arrows hide-mobile">
                       <button class="posts__arrow posts__arrow--prev" aria-label="Назад">
                           <svg width="10" height="16" viewBox="0 0 10 16" fill="none"><path d="M9 1L2 8L9 15" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
                       </button>
@@ -477,7 +540,6 @@
   <script src="libs/slick.min.js"></script>
   <script>
     $('.posts__slider').slick({
-      slidesToShow: 3,
       slidesToScroll: 1,
       arrows: true,
       prevArrow: $('.posts__arrow--prev'),

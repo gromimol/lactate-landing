@@ -31,7 +31,7 @@
 }
 
 html {
-  font-size: 10px;
+  font-size:  62.5%;
   scroll-behavior: smooth;
 }
 
@@ -830,4 +830,322 @@ table {
 .unpacking__video video {
     width: 100%;
     height: 100%;
+}
+.show-mobile {
+    display: none !important;
+}
+
+/*media*/
+@media(width < 1200px) {
+    html {
+        font-size: 0.8vw;
+    }
+    .first-screen__img {
+        text-align: center;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .first-screen__img img {
+        max-width: 20rem;
+    }
+    .zones__img img {
+        max-width: 25rem;
+    }
+    .why-lactate__description {
+        gap: 5rem
+    }
+    .why-lactate__about__img img {
+        max-width: 45rem;
+    }
+    .posts__arrow {
+        width: 40px;
+        height: 40px;
+    }
+    .posts__arrow svg {
+        width: 15px;
+        height: 15px;
+    }
+}
+
+@media(width < 810px) {
+    html {
+        font-size: 50%;
+    }
+    body {
+        font-size: 16px;
+    }
+    .first-screen__grid,
+    .about-description-grid,
+    .features__grid,
+    .interface__body,
+    .zones__grid,
+    .why-lactate__description,
+    .why-lactate__about,
+    .why-lactate__about__description,
+    .price__grid{
+        grid-template-columns: 1fr;
+    }
+    .show-mobile {
+        display: grid !important;
+    }
+    .hide-mobile {
+        display: none !important;
+    }
+    .about::after,
+    .about-description-grid__item__content br,
+    .about-options-grid,
+    .features .h2 br,
+    .zones__notice,
+    .zones__img{
+        display: none;
+    }
+    h1, .h1, h2, .h2 {
+        font-size: 42px;
+    }
+    .h5, h5 {
+        font-size: 20px;
+    }
+    .first-screen__options {
+        padding-left: 35px;
+    }
+    .first-screen__options p {
+        max-width: 200px;
+    }
+    .first-screen__img {
+        flex-direction: column;
+    }
+    .first-screen__img img {
+        max-width: 300px;
+    }
+    .first-screen__message {
+        position: static;
+        font-size: 14px;
+        margin-top: 10px;
+    }
+    .first-screen__prices__content {
+        margin-top: 30px;
+    }
+    .main-price-block .h5,
+    .first-screen__prices__notice .h5{
+        font-size: 20px;
+    }
+    .main-price-block .h2{
+        font-size: 52px;
+    }
+    .delivery-notice {
+        font-size: 14px;
+        width: 80px;
+        transform: translateX(-20%);
+    }
+    .first-screen__prices__notice {
+        margin-top: 10px;
+    }
+    .first-screen__options__list {
+        margin-top: 40px;
+    }
+    .first-screen {
+        background: url('images/top_bg_part2_mobile.webp') center 152% no-repeat,  url('images/top_bg_mobile.webp') center 10% no-repeat;
+        background-size: contain, contain;
+        position: relative;
+        padding-bottom: 50px;
+    }
+    .first-screen::after {
+        content: '';
+        width: 100%;
+        height: 100%;
+        background: url('images/mountain_mobile.webp') center 50% no-repeat;
+        background-size: contain;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        mix-blend-mode: hard-light;
+        z-index: 0;
+    }
+    .options__list__item__title {
+        font-size: 16px;
+    }
+    .options__list__item__description {
+        font-size: 12px;
+    }
+    .about {
+        padding-top: 0;
+        margin-bottom: 50px;
+        z-index: 2;
+    }
+    .about .h2 {
+        font-size: 42px;
+    }
+    .about .block-title {
+        margin-bottom: 30px;
+    }
+    .about-description-grid__item:not(:last-child) {
+        margin-bottom: 20px;
+    }
+    .features::after {
+        background: url('images/features_bg_mobile.webp') center 0 no-repeat;
+        background-size: contain;
+        top: -45%;
+    }
+    .features .h2 {
+        font-size: 34px;
+    }
+    .features .block-title {
+        margin-bottom: 20px;
+        padding: 20px 20px 0;
+    }
+    .features__grid__item {
+        padding: 0;
+    }
+    .features__grid__item__img {
+        position: relative;
+        width: 100%;
+    }
+    .features__grid__item--lg .h3,
+    .features__grid__item--sm .h3{
+        padding: 30px 20px 20px;
+    }
+    .features__grid__item--lg .features__grid__item__grid {
+        margin-top: 34px;
+        padding: 0 20px 20px 20px;
+    }
+    .features__grid__item__grid p {
+        font-size: 14px;
+    }
+    .features__grid__item--lg .features__grid__item__grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 20px
+    }
+    .features__grid__item--lg .features__grid__item__img {
+        height: auto;
+    }
+    .features__grid__item--sm .features__grid__item__img {
+        top: 0;
+    }
+    .features .container {
+        padding: 0;
+    }
+    .features__grid {
+        gap: 20px
+    }
+    .features__grid {
+        background: url('images/features_bg_mobile.webp') center -40% no-repeat;
+        background-size: contain;
+    }
+    .features__grid__item--sm .features__grid__item__grid {
+        margin-top: 0;
+        padding: 0 20px 20px 20px;
+        line-height: 1.5;
+    }
+    .features__grid__item--sm .h3 {
+        padding-bottom: 0;
+    }
+    .features {
+        margin-bottom: 25px;
+    }
+    .interface .container {
+        padding: 0;
+    }
+    .interface__body {
+        padding: 30px 20px;
+    }
+    .interface__description {
+        padding: 0;
+    }
+    .interface__description .h4 {
+        font-size: 26px;
+        margin-bottom: 30px;
+    }
+    body {
+        overflow-x: hidden;
+    }
+    .interface__img {
+        margin-bottom: 30px;
+    }
+    .interface__description__block {
+        line-height: 1.5;
+    }
+    .badge {
+        font-size: 16px;
+        height: 44px;
+    }
+    .zones {
+        padding-top: 50px;
+        padding-bottom: 20px;
+    }
+    .zones__description__content .h2 {
+        font-size: 34px;
+        margin-bottom: 30px;
+    }
+    .zones__description__content .h5 {
+        font-size: 19px;
+        margin-bottom: 20px;
+    }
+    .zones__description__content p {
+        margin-bottom: 20px;
+        line-height: 1.5;
+    }
+    .why-lactate {
+        padding-bottom: 50px;
+    }
+    .why-lactate__description {
+        padding: 0;
+    }
+    .description__item p {
+        font-size: 12px;
+    }
+    .why-lactate__about__description {
+        gap: 40px
+    }
+    .posts__header {
+        justify-content: flex-start;
+    }
+    .posts__slide__caption {
+        padding: 20px;
+        font-size: 14px;
+    }
+    .posts {
+        margin-top: 0;
+        padding-bottom: 40px;
+    }
+    .unpacking__video {
+        height: 207px;
+    }
+    .unpacking {
+        margin-bottom: 50px;
+    }
+    .price {
+        padding-top: 0;
+    }
+    .price .container {
+        padding: 0;
+    }
+    .price__grid__item__block .main-price {
+        font-size: 52px;
+    }
+    .price__grid__item__block {
+        padding: 30px 20px;
+        align-items: flex-start;
+    }
+    .price__grid__item__footer {
+        padding: 20px;
+        font-size: 16px;
+    }
+    .price__grid__item__block .main-price {
+        margin: 20px 0;
+    }
+    .price__grid__item__block .main-price span {
+        font-size: 22px;
+    }
+    .why-lactate {
+        background: url('images/lactate_bg_mobile.webp') center 100% no-repeat;
+        background-size: contain;
+    }
+    .price {
+        background: url('images/price_bg_mobile.webp') center -160px no-repeat;
+        background-size: cover;
+    }
+    .price__grid__item {
+    background: rgba(16, 16, 16, .7)
+    }
 }
