@@ -468,6 +468,30 @@
                       </div>
                       <div class="posts__slide__caption">Лактат и нагрузка: как связаны?</div>
                   </div>
+                    <div class="posts__slide">
+                        <div class="posts__slide__img">
+                            <img src="images/slides/1.png" alt="Как измерить лактат во время тренировки">
+                        </div>
+                        <div class="posts__slide__caption">Как измерить лактат во время тренировки.</div>
+                    </div>
+                    <div class="posts__slide">
+                        <div class="posts__slide__img">
+                            <img src="images/slides/2.png" alt="Почему спортсмены измеряют лактат">
+                        </div>
+                        <div class="posts__slide__caption">Почему спортсмены измеряют лактат?</div>
+                    </div>
+                    <div class="posts__slide">
+                        <div class="posts__slide__img">
+                            <img src="images/slides/3.png" alt="Что такое лактатный порог">
+                        </div>
+                        <div class="posts__slide__caption">Что такое лактатный порог?</div>
+                    </div>
+                    <div class="posts__slide">
+                        <div class="posts__slide__img">
+                            <img src="images/slides/1.png" alt="Лактат и нагрузка">
+                        </div>
+                        <div class="posts__slide__caption">Лактат и нагрузка: как связаны?</div>
+                    </div>
               </div>
               </div>
           </div>
@@ -528,6 +552,32 @@
               </div>
           </div>
       </div>
+
+      <!-- Modal -->
+      <div class="modal" id="postModal">
+          <div class="modal__overlay"></div>
+          <div class="modal__dialog">
+              <div class="modal__close" aria-label="Закрыть">
+                  <svg width="36" height="36" viewBox="0 0 36 36" fill="none">
+                      <circle cx="18" cy="18" r="18" fill="#333336"/>
+                      <path d="M22 14L14 22M14 14L18 18L22 22" stroke="#D6D6D7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+              </div>
+              <div class="modal__content">
+                  <h2 class="modal__title">Как измерить лактат во время тренировки</h2>
+                  <div class="modal__body">
+                      <p>Лактат — это не враг и не признак «закисления». Это нормальный метаболит, который образуется при интенсивной работе мышц. Его уровень в крови точно отражает, какую энергетическую систему вы нагружаете прямо сейчас.</p>
+                      <img src="images/slides/1.png" alt="">
+                      <p>Чтобы измерить лактат на тренировке, вам потребуется портативный лактометр и тест-полоска. Небольшой прокол пальца или мочки уха — и через 10 секунд у вас на дисплее конкретное число в ммоль/л.</p>
+                      <p>Замер лучше делать сразу после ключевого отрезка, пока концентрация ещё не успела снизиться. На длительной — каждые 20–30 минут, на интервалах — сразу после каждого повтора или серии.</p>
+                      <p>
+                          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus aliquid assumenda commodi consequatur cumque dolores et facere fugiat fugit, illo impedit ipsa labore laborum, maiores minima modi molestiae numquam odio perferendis possimus quia quidem sit temporibus totam, voluptates. Consectetur deleniti ducimus libero minima nostrum quae quam quo saepe soluta? Amet architecto aspernatur aut commodi deserunt ex excepturi, fugiat ipsa, ipsum iste laboriosam libero modi nam nesciunt, nobis possimus rem rerum? Cum dicta, iusto quam sit tempora tempore temporibus ullam voluptatum! Ad delectus esse laboriosam nesciunt ratione tempore. Alias asperiores dolores est exercitationem, incidunt molestiae numquam pariatur quam, quas totam veniam!
+                      </p>
+                      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid dolorem ducimus esse magnam, possimus quae rerum vitae. At, odio, perspiciatis? Aliquam atque cum doloribus facere ipsam maxime minima nobis officiis praesentium quas quibusdam repellat, sequi temporibus tenetur unde veniam voluptatum!</p>
+                  </div>
+              </div>
+          </div>
+      </div>
   </main>
 
   <footer class="footer">
@@ -538,6 +588,26 @@
 
   <script src="libs/jquery.min.js"></script>
   <script src="libs/slick.min.js"></script>
+  <script>
+    // Modal
+    const $modal = $('#postModal');
+
+    function openModal() {
+      $('body').addClass('modal-open');
+    }
+    function closeModal() {
+        console.log('111111')
+      $('body').removeClass('modal-open');
+    }
+
+    $(document).on('click', '.posts__slide', openModal);
+    $('.modal__close').on('click', closeModal);
+    $('.modal__overlay').on('click', closeModal);
+
+    $(document).on('keydown', function (e) {
+      if (e.key === 'Escape') closeModal();
+    });
+  </script>
   <script>
     $('.posts__slider').slick({
       slidesToScroll: 1,

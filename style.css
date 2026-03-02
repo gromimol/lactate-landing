@@ -688,7 +688,9 @@ table {
 }
 /*price*/
 .price {
-    padding: 4rem 0;
+    padding: 4rem 0 300px;
+    background: url('images/price_bg.webp') 0 20% no-repeat;
+    background-size: cover;
 }
 .price .block-title {
     text-align: center;
@@ -812,6 +814,82 @@ table {
 }
 
 
+/*modal*/
+.modal-open {
+    overflow: hidden;
+}
+.modal-open .modal {
+    opacity: 1;
+    pointer-events: auto;
+}
+.modal {
+    position: fixed;
+    inset: 0;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+    opacity: 0;
+    pointer-events: none;
+}
+.modal-open .modal__overlay {
+    opacity: 1;
+}
+.modal__overlay {
+    position: absolute;
+    inset: 0;
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    background: rgba(0, 0, 0, 0.6);
+    opacity: 0;
+}
+.modal__dialog {
+    position: relative;
+    z-index: 1;
+    background: #1c1c1e;
+    border-radius: 2rem;
+    padding: 60px 4rem 4rem;
+    max-width: 72rem;
+    width: 100%;
+    max-height: 90vh;
+    overflow: hidden;
+    transform: translateY(16px);
+    transition: transform 0.25s;
+}
+.modal.is-open .modal__dialog {
+    transform: translateY(0);
+}
+.modal__close {
+    position: absolute;
+    top: 2rem;
+    right: 2rem;
+    line-height: 0;
+    cursor: pointer;
+}
+.modal__title {
+    font-size: 3.2rem;
+    font-weight: 700;
+    line-height: 1.15;
+    margin-bottom: 2.4rem;
+}
+.modal__body {
+    display: flex;
+    flex-direction: column;
+    gap: 1.6rem;
+    color: var(--gray);
+    font-size: 1.6rem;
+    line-height: 1.6;
+}
+.modal__body img {
+    width: 100%;
+    border-radius: var(--radius);
+    margin-bottom: 15px;
+}
+.modal__content {
+    overflow-y: auto;
+    max-height: 70vh;
+}
 /*unpacking*/
 .unpacking {
     margin-bottom: 6.4rem;
@@ -1146,6 +1224,29 @@ table {
         background-size: cover;
     }
     .price__grid__item {
-    background: rgba(16, 16, 16, .7)
+        background: rgba(16, 16, 16, .7)
+    }
+    .posts__slider-wrap .slick-list{
+        overflow: hidden;
+    }
+    .posts__slider-wrap .container {
+        padding: 0;
+    }
+    .posts__slider {
+        padding: 0 20px;
+    }
+    .modal__title {
+        font-size: 30px;
+    }
+    .modal {
+        padding: 0;
+    }
+    .modal__body p {
+        font-size: 16px;
+        line-height: 1.5;
+        margin-bottom: 1em;
+    }
+    .modal__dialog {
+        padding: 95px 20px 40px;
     }
 }
