@@ -872,6 +872,10 @@ table {
     right: 2rem;
     line-height: 0;
     cursor: pointer;
+    transition: all .3s;
+}
+.modal__close:hover {
+    opacity: .7;
 }
 .modal__title {
     font-size: 3.2rem;
