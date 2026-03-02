@@ -586,40 +586,10 @@
     </div>
   </footer>
 
+  <script src="libs/motion.min.js"></script>
   <script src="libs/jquery.min.js"></script>
   <script src="libs/slick.min.js"></script>
-  <script>
-    // Modal
-    const $modal = $('#postModal');
-
-    function openModal() {
-      $('body').addClass('modal-open');
-    }
-    function closeModal() {
-        console.log('111111')
-      $('body').removeClass('modal-open');
-    }
-
-    $(document).on('click', '.posts__slide', openModal);
-    $('.modal__close').on('click', closeModal);
-    $('.modal__overlay').on('click', closeModal);
-
-    $(document).on('keydown', function (e) {
-      if (e.key === 'Escape') closeModal();
-    });
-  </script>
-  <script>
-    $('.posts__slider').slick({
-      slidesToScroll: 1,
-      arrows: true,
-      prevArrow: $('.posts__arrow--prev'),
-      nextArrow: $('.posts__arrow--next'),
-      infinite: false,
-      dots: false,
-      swipe: true,
-      variableWidth: true,
-    });
-  </script>
+  <script src="js/main.js"></script>
 
   <!-- SVG Sprite -->
   <svg xmlns="http://www.w3.org/2000/svg" style="display:none">
