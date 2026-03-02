@@ -952,6 +952,46 @@ table {
     }
 }
 
+@media(max-width: 1100px) and (min-width: 811px) {
+    .main-price-block__row {
+        flex-direction: column;
+        gap: 1rem;
+        align-items: flex-start;
+    }
+    .delivery-notice {
+        font-size: 12px;
+    }
+    .about-options-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .about-options-grid__item {
+        & .icon {
+            margin-bottom: 30px;
+        }
+    }
+    .about-options-grid__item__content {
+        & .h5 {
+            font-size: 18px;
+        }
+        & p {
+            font-size: 16px;
+        }
+    }
+    .posts__slider .slick-list {
+        overflow: hidden;
+        padding: 0 20px;
+    }
+    .posts .container {
+        padding: 0;
+    }
+    .posts__arrows {
+        right: 20px;
+    }
+    .price__grid__item {
+        background: rgba(16, 16, 16, .7);
+    }
+}
+
 @media(width < 810px) {
     html {
         font-size: 50%;
@@ -1030,7 +1070,7 @@ table {
     }
     .first-screen {
         background: url('images/top_bg_part2_mobile.webp') center 152% no-repeat,  url('images/top_bg_mobile.webp') center 10% no-repeat;
-        background-size: contain, contain;
+        background-size: cover, contain;
         position: relative;
         padding-bottom: 50px;
     }
@@ -1257,5 +1297,10 @@ table {
     }
     .features__grid__item--lg .features__grid__item__img {
         width: 100%;
+    }
+}
+@media(max-width: 640px) {
+    .first-screen {
+        background-size: contain, contain;
     }
 }
