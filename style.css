@@ -1303,4 +1303,7 @@ table {
     .first-screen {
         background-size: contain, contain;
     }
+    .delivery-notice {
+        transform: translateX(0);
+    }
 }
