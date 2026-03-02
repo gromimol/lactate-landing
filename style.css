@@ -383,6 +383,11 @@ table {
     grid-template-columns: 1.8fr 1fr;
     gap: 6rem;
 }
+.features__grid__item__img picture {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
 .features__grid__item {
     border-radius: var(--radius);
     background: #000;
@@ -408,6 +413,7 @@ table {
     }
 }
 .features__grid__item--lg .features__grid__item__img{
+    width: 80%;
     height: 43rem;
 }
 .features__grid__item--lg .features__grid__item__grid {
@@ -1248,5 +1254,8 @@ table {
     }
     .modal__dialog {
         padding: 95px 20px 40px;
+    }
+    .features__grid__item--lg .features__grid__item__img {
+        width: 100%;
     }
 }
