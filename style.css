@@ -1266,8 +1266,8 @@ table {
         font-size: 22px;
     }
     .why-lactate {
-        background: url('images/lactate_bg_mobile.webp') center 100% no-repeat;
-        background-size: contain;
+        background: url('images/lactate_bg_mobile.webp') center 0 no-repeat;
+        background-size: cover;
     }
     .price {
         background: url('images/price_bg_mobile.webp') center -160px no-repeat;
@@ -1302,6 +1302,10 @@ table {
     .features__grid__item--lg .features__grid__item__img {
         width: 100%;
     }
+    .why-lactate__about__img {
+        display: flex;
+        justify-content: center;
+    }
 }
 @media(max-width: 640px) {
     .first-screen {
@@ -1309,5 +1313,11 @@ table {
     }
     .delivery-notice {
         transform: translateX(0);
+    }
+}
+@media(width < 410px) {
+    .why-lactate {
+        background: url('images/lactate_bg_mobile.webp') center 100% no-repeat;
+        background-size: contain;
     }
 }
