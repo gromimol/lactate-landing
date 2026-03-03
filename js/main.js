@@ -60,6 +60,7 @@ if (!isDesktop) {
   });
 }
 
+
 const fadeUp = (selector, options = {}) => {
   inView(selector, () => {
     animate(selector, { opacity: [0, 1], y: [30, 0] }, { duration: 0.6, easing: 'ease-out', ...options });
@@ -88,8 +89,17 @@ if (isDesktop) {
   document.querySelectorAll('.about-options-grid__item').forEach((item, i) => {
     scroll(
       animate(item, { y: [40 + i * 25, 0], filter: ['blur(2px)', 'blur(0px)'], opacity: [0.6, 1] }),
-      { target: document.querySelector('.about-options-grid'), offset: ['start end', 'end center'] }
+      { target: document.querySelector('.about-options-grid'), offset: ['start end', 'end 0.85'] }
     );
+
+    new MutationObserver(() => {
+      const style = item.getAttribute('style') || '';
+      if (style.includes('transform: none')) {
+        item.classList.add('about-options-grid__item--animation-end');
+      } else {
+        item.classList.remove('about-options-grid__item--animation-end');
+      }
+    }).observe(item, { attributes: true, attributeFilter: ['style'] });
   });
 
   // Price параллакс
