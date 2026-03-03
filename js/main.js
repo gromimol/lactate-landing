@@ -43,20 +43,22 @@ $(document).on('keydown', function (e) {
 const { scroll, animate, inView, stagger } = Motion;
 const isDesktop = window.matchMedia('(min-width: 1200px)').matches;
 
-// Скрываем элементы до анимации
-const animatedEls = [
-  '.about-options-grid__item',
-  '.features__grid__item--lg',
-  '.features__grid__item--sm',
-  '.price__grid__item',
-  '.why-lactate__about__img',
-  '.interface__body',
-];
-animatedEls.forEach(sel => {
-  document.querySelectorAll(sel).forEach(el => {
-    el.style.opacity = '0';
+// Скрываем элементы до анимации (только мобильные)
+if (!isDesktop) {
+  const animatedEls = [
+    '.about-options-grid__item',
+    '.features__grid__item--lg',
+    '.features__grid__item--sm',
+    '.price__grid__item',
+    '.why-lactate__about__img',
+    '.interface__body',
+  ];
+  animatedEls.forEach(sel => {
+    document.querySelectorAll(sel).forEach(el => {
+      el.style.opacity = '0';
+    });
   });
-});
+}
 
 const fadeUp = (selector, options = {}) => {
   inView(selector, () => {
