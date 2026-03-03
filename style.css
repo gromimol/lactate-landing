@@ -1321,3 +1321,9 @@ table {
         background-size: contain;
     }
 }
+
+/*animate-fade-up*/
+.animate-fade-up {
+    opacity: 0;
+    transform: translateY(30px);
+}
