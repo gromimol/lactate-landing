@@ -37,85 +37,97 @@ $(document).on('keydown', function (e) {
 
 
 // =========================================
-// Parallax
+// Animations
 // =========================================
 
 const { scroll, animate, inView, stagger } = Motion;
+const isDesktop = window.matchMedia('(min-width: 1200px)').matches;
 
-// =========================================
-// Scroll animations
-// =========================================
-
-scroll(
-  animate('.features__grid__item--lg', { x: [-50, 0] }),
-  {
-    target: document.querySelector('.features'),
-    offset: ['start end', 'end end']
-  }
-);
-
-scroll(
-  animate('.features__grid__item--sm', { x: [50, 0] }),
-  {
-    target: document.querySelector('.features'),
-    offset: ['start end', 'end end']
-  }
-);
-
-inView('.interface__body', () => {
-  animate(
-    '.interface__body',
-    { opacity: [0, 1], y: [50, 0] },
-    { duration: 0.7, easing: 'ease-out' }
-  );
-}, { margin: '0px 0px -100px 0px' });
-
-scroll(
-  animate('.badge', { y: [60, -60] }),
-  {
-    target: document.querySelector('.interface'),
-    offset: ['start end', 'end start']
-  }
-);
-
-document.querySelectorAll('.about-options-grid__item').forEach((item, i) => {
-  scroll(
-    animate(item, {
-      y: [40 + i * 25, 0],
-      filter: ['blur(2px)', 'blur(0px)'],
-      opacity: [0.6, 1]
-    }),
-    {
-      target: document.querySelector('.about-options-grid'),
-      offset: ['start end', 'end center']
-    }
-  );
+// Скрываем элементы до анимации
+const animatedEls = [
+  '.about-options-grid__item',
+  '.features__grid__item--lg',
+  '.features__grid__item--sm',
+  '.price__grid__item',
+  '.why-lactate__about__img',
+  '.interface__body',
+];
+animatedEls.forEach(sel => {
+  document.querySelectorAll(sel).forEach(el => {
+    el.style.opacity = '0';
+  });
 });
 
+const fadeUp = (selector, options = {}) => {
+  inView(selector, () => {
+    animate(selector, { opacity: [0, 1], y: [30, 0] }, { duration: 0.6, easing: 'ease-out', ...options });
+  }, { margin: '0px 0px -80px 0px' });
+};
 
-scroll(
-  animate('.price__grid__item:first-child', { x: [-60, 0], opacity: [0.3, 1] }),
-  {
-    target: document.querySelector('.price'),
-    offset: ['start end', 'center center']
-  }
-);
+if (isDesktop) {
 
-scroll(
-  animate('.price__grid__item:last-child', { x: [60, 0], opacity: [0.3, 1] }),
-  {
-    target: document.querySelector('.price'),
-    offset: ['start end', 'center center']
-  }
-);
+  // Features параллакс
+  scroll(
+    animate('.features__grid__item--lg', { y: [-40, 40] }),
+    { target: document.querySelector('.features'), offset: ['start end', 'end start'] }
+  );
+  scroll(
+    animate('.features__grid__item--sm', { y: [40, -40] }),
+    { target: document.querySelector('.features'), offset: ['start end', 'end start'] }
+  );
 
-scroll(
-  animate('.why-lactate__about__img', { x: [-80, 0] }),
-  {
-    target: document.querySelector('.why-lactate__about'),
-    offset: ['start end', 'end center']
-  }
-);
+  // Badge параллакс
+  scroll(
+    animate('.badge', { y: [60, -60] }),
+    { target: document.querySelector('.interface'), offset: ['start end', 'end start'] }
+  );
+
+  // About options параллакс + блюр
+  document.querySelectorAll('.about-options-grid__item').forEach((item, i) => {
+    scroll(
+      animate(item, { y: [40 + i * 25, 0], filter: ['blur(2px)', 'blur(0px)'], opacity: [0.6, 1] }),
+      { target: document.querySelector('.about-options-grid'), offset: ['start end', 'end center'] }
+    );
+  });
+
+  // Price параллакс
+  scroll(
+    animate('.price__grid__item:first-child', { x: [-60, 0], opacity: [0.3, 1] }),
+    { target: document.querySelector('.price'), offset: ['start end', 'center center'] }
+  );
+  scroll(
+    animate('.price__grid__item:last-child', { x: [60, 0], opacity: [0.3, 1] }),
+    { target: document.querySelector('.price'), offset: ['start end', 'center center'] }
+  );
+
+  // Why-lactate img параллакс
+  scroll(
+    animate('.why-lactate__about__img', { x: [-80, 0] }),
+    { target: document.querySelector('.why-lactate__about'), offset: ['start end', 'end center'] }
+  );
+
+  // First screen параллакс
+  scroll(
+    animate('.first-screen__img, .first-screen__prices__content', { y: [0, 100] }),
+    { target: document.querySelector('.first-screen'), offset: ['start start', 'end start'] }
+  );
+
+} else {
+
+  // Мобильные — простые fade-up
+  fadeUp('.about-options-grid__item', { delay: stagger(0.1) });
+  fadeUp('.features__grid__item--lg');
+  fadeUp('.features__grid__item--sm', { delay: 0.1 });
+  fadeUp('.price__grid__item:first-child');
+  fadeUp('.price__grid__item:last-child', { delay: 0.15 });
+  fadeUp('.why-lactate__about__img');
+
+}
+
+// Interface fade-up (все экраны)
+inView('.interface__body', () => {
+  animate('.interface__body', { opacity: [0, 1], y: [50, 0] }, { duration: 0.7, easing: 'ease-out' });
+}, { margin: '0px 0px -100px 0px' });
 
 
 // =========================================
@@ -145,16 +157,3 @@ inView('.why-lactate__description', () => {
     });
   });
 }, { margin: '0px 0px -80px 0px' });
-
-
-// =========================================
-// Parallax
-// =========================================
-
-scroll(
-  animate('.first-screen__img, .first-screen__prices__content', { y: [0, 100] }),
-  {
-    target: document.querySelector('.first-screen'),
-    offset: ['start start', 'end start']
-  }
-);
