@@ -129,9 +129,9 @@ if (isDesktop) {
 // animate-fade-up
 document.querySelectorAll('.animate-fade-up').forEach(el => {
   inView(el, () => {
-    animate(el, { opacity: 1, y: 0 }, { duration: 1, easing: [0.16, 1, 0.3, 1] });
+    animate(el, { opacity: 1, y: 0 }, { duration: 1.5, easing: [0.16, 1, 0.3, 1] });
     return () => {
-      animate(el, { opacity: 0, y: 30 }, { duration: 0.5, easing: 'ease-in' });
+      animate(el, { opacity: 0, y: 20 }, { duration: 1, easing: 'ease-in' });
     };
   }, { margin: '0px 0px -20% 0px' });
 });
