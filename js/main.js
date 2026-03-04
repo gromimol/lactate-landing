@@ -105,11 +105,11 @@ if (isDesktop) {
   // Price параллакс
   scroll(
     animate('.price__grid__item:first-child', { x: [-60, 0], opacity: [0.3, 1] }),
-    { target: document.querySelector('.price'), offset: ['start end', 'center center'] }
+    { target: document.querySelector('.price'), offset: ['start end', 'center 0.8'] }
   );
   scroll(
     animate('.price__grid__item:last-child', { x: [60, 0], opacity: [0.3, 1] }),
-    { target: document.querySelector('.price'), offset: ['start end', 'center center'] }
+    { target: document.querySelector('.price'), offset: ['start end', 'center 0.8'] }
   );
 
   // Why-lactate img параллакс
