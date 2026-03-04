@@ -378,7 +378,7 @@ table {
         transform: translateY(-20px) !important;
     }
     .about-options-grid__item--animation-end:hover::before {
-        opacity: .1;
+        opacity: .15;
     }
 }
 
