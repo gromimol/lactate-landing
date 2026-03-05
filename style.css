@@ -176,6 +176,8 @@ table {
 
 .header {
     padding: 20px 0;
+    position: relative;
+    z-index: 2;
 }
 .header .logo {
     width: 107px;
@@ -279,8 +281,7 @@ table {
 .first-screen {
     padding-top: 12rem;
     padding-bottom: 12rem;
-    background: linear-gradient(to top, #050000 0%, transparent 30rem),
-    url('images/top_bg.webp') center 0 no-repeat;
+    background: linear-gradient(to top, #050000 0%, transparent 30rem);
     background-size: cover;
 
     .container {
@@ -387,7 +388,15 @@ table {
     left: 0;
     width: 100%;
 }
-
+.hero__video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    min-width: 100%;
+    min-height: 100%;
+    object-fit: cover;
+}
 
 /*about*/
 .about {
@@ -1157,6 +1166,9 @@ a {
     .first-screen__img img {
         max-width: 20rem;
     }
+    .hero__video {
+        top: 20%;
+    }
     .zones__img img {
         max-width: 25rem;
     }
@@ -1559,6 +1571,9 @@ a {
     }
     .menu {
         display: none;
+    }
+    .hero__video {
+        top: 10%;
     }
 }
 @media(width < 410px) {
