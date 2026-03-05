@@ -1,4 +1,98 @@
 // =========================================
+// i18n
+// =========================================
+
+function detectLang() {
+  const param = new URLSearchParams(window.location.search).get('lang');
+  if (param === 'ru' || param === 'en') {
+    localStorage.setItem('lang', param);
+    return param;
+  }
+  const stored = localStorage.getItem('lang');
+  if (stored === 'ru' || stored === 'en') return stored;
+  return 'ru';
+}
+
+function applyTranslations(lang) {
+  const t = translations[lang];
+  document.documentElement.lang = lang;
+  document.title = t.pageTitle;
+
+  document.querySelectorAll('[data-i18n]').forEach(el => {
+    const key = el.dataset.i18n;
+    if (t[key] === undefined) return;
+    el.innerHTML = t[key];
+  });
+
+  document.querySelectorAll('[data-i18n-aria]').forEach(el => {
+    const key = el.dataset.i18nAria;
+    if (t[key] === undefined) return;
+    el.setAttribute('aria-label', t[key]);
+  });
+}
+
+const currentLang = detectLang();
+applyTranslations(currentLang);
+
+const langSwitcher = document.getElementById('langSwitcher');
+if (langSwitcher) {
+  const btn    = langSwitcher.querySelector('.lang-switcher__btn');
+  const flagEl = langSwitcher.querySelector('.lang-switcher__flag use');
+  const codeEl = langSwitcher.querySelector('.lang-switcher__code');
+
+  function updateBtn(lang) {
+    const opt = langSwitcher.querySelector(`.lang-switcher__option[data-lang="${lang}"]`);
+    if (!opt) return;
+    flagEl.setAttribute('href', opt.dataset.icon);
+    codeEl.textContent = opt.dataset.code;
+  }
+
+  updateBtn(currentLang);
+
+  btn.addEventListener('click', (e) => {
+    e.stopPropagation();
+    langSwitcher.classList.toggle('lang-switcher--open');
+  });
+
+  langSwitcher.querySelectorAll('.lang-switcher__option').forEach(opt => {
+    opt.addEventListener('click', () => {
+      const lang = opt.dataset.lang;
+      localStorage.setItem('lang', lang);
+      updateBtn(lang);
+      applyTranslations(lang);
+      langSwitcher.classList.remove('lang-switcher--open');
+    });
+  });
+
+  document.addEventListener('click', () => {
+    langSwitcher.classList.remove('lang-switcher--open');
+  });
+}
+
+
+// =========================================
+// Doc modals (footer links)
+// =========================================
+
+const docKeys = {
+  terms:   { title: 'docTermsTitle',   body: 'docTermsBody'   },
+  offer:   { title: 'docOfferTitle',   body: 'docOfferBody'   },
+  returns: { title: 'docReturnsTitle', body: 'docReturnsBody' },
+};
+
+document.querySelectorAll('.doc-link').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const keys = docKeys[btn.dataset.doc];
+    if (!keys) return;
+    const t = translations[document.documentElement.lang] || translations['ru'];
+    document.querySelector('.modal__title').innerHTML = t[keys.title];
+    document.querySelector('.modal__body').innerHTML  = t[keys.body];
+    openModal();
+  });
+});
+
+
+// =========================================
 // Slider
 // =========================================
 
@@ -17,8 +111,6 @@ $('.posts__slider').slick({
 // =========================================
 // Modal
 // =========================================
-
-const $modal = $('#postModal');
 
 function openModal() {
   $('body').addClass('modal-open');
@@ -45,19 +137,14 @@ const isDesktop = window.matchMedia('(min-width: 1200px)').matches;
 
 // Скрываем элементы до анимации (только мобильные)
 if (!isDesktop) {
-  const animatedEls = [
+  document.querySelectorAll([
     '.about-options-grid__item',
     '.features__grid__item--lg',
     '.features__grid__item--sm',
     '.price__grid__item',
     '.why-lactate__about__img',
     '.interface__body',
-  ];
-  animatedEls.forEach(sel => {
-    document.querySelectorAll(sel).forEach(el => {
-      el.style.opacity = '0';
-    });
-  });
+  ].join(',')).forEach(el => { el.style.opacity = '0'; });
 }
 
 

@@ -15,8 +15,8 @@
         <div class="header__left">
             <div class="logo"><img src="images/logo.svg" alt=""></div>
             <ul class="menu">
-                <li><a href="#posts">Статьи</a></li>
-                <li><a href="#video">Видео</a></li>
+                <li><a href="#posts" data-i18n="menuArticles">Статьи</a></li>
+                <li><a href="#video" data-i18n="menuVideo">Видео</a></li>
             </ul>
         </div>
         <div class="header__right">
@@ -597,13 +597,13 @@
                           <div class="h5" data-i18n="footerInfoTitle">Информация</div>
                           <ul class="footer__grid__list">
                               <li>
-                                  <span class="text-decoration" data-i18n="footerLinkTerms">Пользовательское соглашение</span>
+                                  <button class="text-decoration doc-link" data-doc="terms" data-i18n="footerLinkTerms">Пользовательское соглашение</button>
                               </li>
                               <li>
-                                  <span class="text-decoration" data-i18n="footerLinkOffer">Оферта</span>
+                                  <button class="text-decoration doc-link" data-doc="offer" data-i18n="footerLinkOffer">Оферта</button>
                               </li>
                               <li>
-                                  <span class="text-decoration" data-i18n="footerLinkReturn">Обмен и возврат</span>
+                                  <button class="text-decoration doc-link" data-doc="returns" data-i18n="footerLinkReturn">Обмен и возврат</button>
                               </li>
                           </ul>
                       </div>
@@ -669,11 +669,6 @@
 
   <!-- SVG Sprite -->
   <svg xmlns="http://www.w3.org/2000/svg" style="display:none">
-    <defs>
-      <clipPath id="clip-flag-circle">
-        <circle cx="12" cy="12" r="11"/>
-      </clipPath>
-    </defs>
     <symbol id="icon-stopwatch" viewBox="0 0 29 35" fill="none">
       <path d="M11.25 1.5H17.75M14.5 20.7L19.375 15.9M27.5 20.7C27.5 27.7692 21.6797 33.5 14.5 33.5C7.3203 33.5 1.5 27.7692 1.5 20.7C1.5 13.6308 7.3203 7.9 14.5 7.9C21.6797 7.9 27.5 13.6308 27.5 20.7Z" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
     </symbol>
@@ -717,9 +712,13 @@
       </symbol>
 
       <symbol id="icon-flag-us" viewBox="0 0 24 24" fill="none">
+          <defs>
+              <clipPath id="us-circle">
+                  <circle cx="12" cy="12" r="11"/>
+              </clipPath>
+          </defs>
           <circle cx="12" cy="12" r="11" fill="#F0F0F0"/>
-          <g clip-path="url(#clip-flag-circle)">
-              <!-- 7 красных полос: h = 22/13 ≈ 1.692 -->
+          <g clip-path="url(#us-circle)">
               <rect x="1" y="1"      width="22" height="1.692" fill="#D80027"/>
               <rect x="1" y="4.385"  width="22" height="1.692" fill="#D80027"/>
               <rect x="1" y="7.769"  width="22" height="1.692" fill="#D80027"/>
@@ -727,9 +726,7 @@
               <rect x="1" y="14.538" width="22" height="1.692" fill="#D80027"/>
               <rect x="1" y="17.923" width="22" height="1.692" fill="#D80027"/>
               <rect x="1" y="21.308" width="22" height="1.692" fill="#D80027"/>
-              <!-- Синий кантон: 7 полос в высоту × ~40% ширины -->
               <rect x="1" y="1" width="9" height="11.846" fill="#0052B4"/>
-              <!-- Звёзды: чередующиеся ряды 4 и 3 точки -->
               <circle cx="2.6"  cy="2.4"  r="0.55" fill="#F0F0F0"/>
               <circle cx="4.5"  cy="2.4"  r="0.55" fill="#F0F0F0"/>
               <circle cx="6.4"  cy="2.4"  r="0.55" fill="#F0F0F0"/>

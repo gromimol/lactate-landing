@@ -368,6 +368,7 @@ table {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    gap: 15px;
 }
 .delivery-notice {
     font-size: 1.4rem;
@@ -1034,6 +1035,21 @@ table {
     font-size: 1.6rem;
     line-height: 1.6;
 }
+.modal__body p {
+    margin-bottom: 1.2rem;
+    color: var(--gray);
+}
+.modal__body h3 {
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: var(--white);
+    margin-top: 2.4rem;
+    margin-bottom: 0.8rem;
+}
+.modal__body a {
+    color: var(--white);
+    text-decoration: underline;
+}
 .modal__body img {
     width: 100%;
     border-radius: var(--radius);
@@ -1095,6 +1111,9 @@ table {
     display: flex;
     flex-direction: column;
     gap: 5px;
+}
+.doc-link {
+    color: inherit;
 }
 .text-decoration {
     text-decoration: underline;
