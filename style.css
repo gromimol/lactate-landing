@@ -385,6 +385,7 @@ table {
     position: absolute;
     top: calc(100% + 4rem);
     left: 0;
+    width: 100%;
 }
 
 
