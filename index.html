@@ -12,6 +12,39 @@
 
   <header class="header">
     <div class="container">
+        <div class="header__left">
+            <div class="logo"><img src="images/logo.svg" alt=""></div>
+            <ul class="menu">
+                <li><a href="#posts">Статьи</a></li>
+                <li><a href="#video">Видео</a></li>
+            </ul>
+        </div>
+        <div class="header__right">
+            <div class="lang-switcher" id="langSwitcher">
+                <button class="lang-switcher__btn" type="button">
+                    <svg class="lang-switcher__flag" width="24" height="24"><use href="#icon-flag-ru"/></svg>
+                    <span class="lang-switcher__code">RU</span>
+                    <svg class="lang-switcher__chevron" width="10" height="6" viewBox="0 0 10 6" fill="none">
+                        <path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </button>
+                <div class="lang-switcher__dropdown">
+                    <button class="lang-switcher__option" type="button" data-lang="ru" data-icon="#icon-flag-ru" data-code="RU">
+                        <svg width="24" height="24"><use href="#icon-flag-ru"/></svg> RU
+                    </button>
+                    <button class="lang-switcher__option" type="button" data-lang="en" data-icon="#icon-flag-us" data-code="EN">
+                        <svg width="24" height="24"><use href="#icon-flag-us"/></svg> EN
+                    </button>
+                </div>
+            </div>
+            <ul class="social">
+                <li>
+                    <a href="#">
+                        <img src="images/telegram.svg" alt="Telegram" loading="lazy">
+                    </a>
+                </li>
+            </ul>
+        </div>
     </div>
   </header>
 
@@ -20,10 +53,10 @@
             <div class="container">
                 <div class="first-screen__grid">
                     <div class="first-screen__options">
-                        <h1 class="h1">
+                        <h1 class="h1" data-i18n="heroTitle">
                             Анализатор лактата
                         </h1>
-                        <p>
+                        <p data-i18n="heroSubtitle">
                             Training Endurance вместе Eaglenos Inc
                         </p>
 
@@ -33,10 +66,10 @@
                                     <svg><use href="#icon-stopwatch" /></svg>
                                 </div>
                                 <div class="options__list__item__content">
-                                    <div class="options__list__item__title">
+                                    <div class="options__list__item__title" data-i18n="spec1Title">
                                         10 секунд
                                     </div>
-                                    <div class="options__list__item__description">
+                                    <div class="options__list__item__description" data-i18n="spec1Desc">
                                         результат на экране
                                     </div>
                                 </div>
@@ -46,10 +79,10 @@
                                     <svg><use href="#icon-drop" /></svg>
                                 </div>
                                 <div class="options__list__item__content">
-                                    <div class="options__list__item__title">
+                                    <div class="options__list__item__title" data-i18n="spec2Title">
                                         0.8 мкл
                                     </div>
-                                    <div class="options__list__item__description">
+                                    <div class="options__list__item__description" data-i18n="spec2Desc">
                                         микрокапля материала
                                     </div>
                                 </div>
@@ -59,10 +92,10 @@
                                     <svg><use href="#icon-bluetooth" /></svg>
                                 </div>
                                 <div class="options__list__item__content">
-                                    <div class="options__list__item__title">
+                                    <div class="options__list__item__title" data-i18n="spec3Title">
                                         Bluetooth
                                     </div>
-                                    <div class="options__list__item__description">
+                                    <div class="options__list__item__description" data-i18n="spec3Desc">
                                         Синхронизация с ТЕ
                                     </div>
                                 </div>
@@ -72,10 +105,10 @@
                                     <svg><use href="#icon-menu" /></svg>
                                 </div>
                                 <div class="options__list__item__content">
-                                    <div class="options__list__item__title">
+                                    <div class="options__list__item__title" data-i18n="spec4Title">
                                         Зоны лактата
                                     </div>
-                                    <div class="options__list__item__description">
+                                    <div class="options__list__item__description" data-i18n="spec4Desc">
                                         Настраиваемые зоны
                                     </div>
                                 </div>
@@ -86,16 +119,16 @@
                         <picture>
                             <img src="images/analizator_desctop.webp" alt="Анализатор лактата">
                         </picture>
-                        <div class="first-screen__message">
+                        <div class="first-screen__message" data-i18n="heroNotMedical">
                             Не является медицинским устройством
                         </div>
                     </div>
                     <div class="first-screen__prices">
                         <div class="first-screen__prices__header hide-mobile">
-                            <p>
+                            <p data-i18n="heroMeasured">
                                 Измерил — увидел на графике тренировки.
                             </p>
-                            <p>
+                            <p data-i18n="heroNoBullshit">
                                 – Без ручного ввода<br />
                                 – Без таблиц<br />
                                 – Без потерянных записей.
@@ -104,19 +137,19 @@
 
                         <div class="first-screen__prices__content">
                             <div class="main-price-block">
-                                <div class="h5">Стоимость устройства</div>
-                                <div class="h2">
+                                <div class="h5" data-i18n="devicePriceLabel">Стоимость устройства</div>
+                                <div class="h2" data-i18n="devicePrice">
                                     27 000 ₽
                                 </div>
                                 <div class="main-price-block__row">
-                                    <a href="#" class="btn">Заказать</a>
-                                    <span class="delivery-notice">Доставка по РФ</span>
+                                    <a href="#" class="btn" data-i18n="btnOrder">Заказать</a>
+                                    <span class="delivery-notice" data-i18n="deliveryNotice">Доставка по РФ</span>
                                 </div>
                             </div>
 
                             <div class="first-screen__prices__notice">
-                                <div class="h5">Месяц PRO в ТЕ бесплатно </div>
-                                <p>при покупке лактометра</p>
+                                <div class="h5" data-i18n="proMonthLabel">Месяц PRO в ТЕ бесплатно </div>
+                                <p data-i18n="proMonthDesc">при покупке лактометра</p>
                             </div>
                         </div>
 
@@ -126,10 +159,10 @@
                                     <svg><use href="#icon-stopwatch" /></svg>
                                 </div>
                                 <div class="options__list__item__content">
-                                    <div class="options__list__item__title">
+                                    <div class="options__list__item__title" data-i18n="spec1Title">
                                         10 секунд
                                     </div>
-                                    <div class="options__list__item__description">
+                                    <div class="options__list__item__description" data-i18n="spec1Desc">
                                         результат на экране
                                     </div>
                                 </div>
@@ -139,10 +172,10 @@
                                     <svg><use href="#icon-drop" /></svg>
                                 </div>
                                 <div class="options__list__item__content">
-                                    <div class="options__list__item__title">
+                                    <div class="options__list__item__title" data-i18n="spec2Title">
                                         0.8 мкл
                                     </div>
-                                    <div class="options__list__item__description">
+                                    <div class="options__list__item__description" data-i18n="spec2Desc">
                                         микрокапля материала
                                     </div>
                                 </div>
@@ -152,10 +185,10 @@
                                     <svg><use href="#icon-bluetooth" /></svg>
                                 </div>
                                 <div class="options__list__item__content">
-                                    <div class="options__list__item__title">
+                                    <div class="options__list__item__title" data-i18n="spec3Title">
                                         Bluetooth
                                     </div>
-                                    <div class="options__list__item__description">
+                                    <div class="options__list__item__description" data-i18n="spec3Desc">
                                         Синхронизация с ТЕ
                                     </div>
                                 </div>
@@ -165,10 +198,10 @@
                                     <svg><use href="#icon-menu" /></svg>
                                 </div>
                                 <div class="options__list__item__content">
-                                    <div class="options__list__item__title">
+                                    <div class="options__list__item__title" data-i18n="spec4Title">
                                         Зоны лактата
                                     </div>
-                                    <div class="options__list__item__description">
+                                    <div class="options__list__item__description" data-i18n="spec4Desc">
                                         Настраиваемые зоны
                                     </div>
                                 </div>
@@ -181,26 +214,26 @@
 
       <div class="about">
           <div class="container">
-                <div class="block-title h2">
+                <div class="block-title h2" data-i18n="aboutTitle">
                     Тренироваться<br /> не больше, а точнее
                 </div>
               <div class="about-description-grid">
                   <div class="about-description-grid__item">
                       <div class="about-description-grid__item__content">
-                          <div class="h5">
+                          <div class="h5" data-i18n="aboutCard1Title">
                               Две одинаковые тренировки могут<br /> дать разный результат.
                           </div>
-                          <p>
+                          <p data-i18n="aboutCard1Text">
                               Пробежали интервалы чуть быстрее, чем нужно&nbsp;&mdash; вместо развития аэробной базы получили закисление и&nbsp;лишнюю усталость. Пробежали чуть медленнее&nbsp;&mdash; недобрали стимул, тело не&nbsp;адаптировалось.
                           </p>
                       </div>
                   </div>
                   <div class="about-description-grid__item">
                       <div class="about-description-grid__item__content">
-                          <div class="h5">
+                          <div class="h5" data-i18n="aboutCard2Title">
                               Лактат показывает, что происходит<br /> внутри прямо сейчас.
                           </div>
-                          <p>
+                          <p data-i18n="aboutCard2Text">
                               Не&nbsp;пульс, который плывёт от&nbsp;погоды и&nbsp;настроения. Не&nbsp;ощущения, которые обманывают. А&nbsp;конкретный маркер: какую энергетическую систему вы&nbsp;нагружаете и&nbsp;какие адаптации получите.
                           </p>
                       </div>
@@ -211,8 +244,8 @@
                   <div class="about-options-grid__item">
                       <div class="icon"><svg><use href="#icon-zone-circle" /></svg></div>
                       <div class="about-options-grid__item__content">
-                          <div class="h5">Точные зоны</div>
-                          <p class="animate-fade-up">
+                          <div class="h5" data-i18n="benefit1Title">Точные зоны</div>
+                          <p class="animate-fade-up" data-i18n="benefit1Text">
                               Тренируете именно&nbsp;то, что хотите. Длительная на&nbsp;жирах, темповая на&nbsp;пороге, интервалы над порогом. Каждая работа попадает в&nbsp;цель.
                           </p>
                       </div>
@@ -220,8 +253,8 @@
                   <div class="about-options-grid__item">
                       <div class="icon"><svg><use href="#icon-shape-control" /></svg></div>
                       <div class="about-options-grid__item__content">
-                          <div class="h5">Контроль формы</div>
-                          <p class="animate-fade-up">
+                          <div class="h5" data-i18n="benefit2Title">Контроль формы</div>
+                          <p class="animate-fade-up" data-i18n="benefit2Text">
                               Пороги растут&nbsp;&mdash; адаптация идёт. Встали&nbsp;&mdash; пора менять программу. Упали&nbsp;&mdash; недовосстановление. Объективные цифры вместо гадания.
                           </p>
                       </div>
@@ -229,8 +262,8 @@
                   <div class="about-options-grid__item">
                       <div class="icon"><svg><use href="#icon-start" /></svg></div>
                       <div class="about-options-grid__item__content">
-                          <div class="h5">Темп на старте</div>
-                          <p class="animate-fade-up">
+                          <div class="h5" data-i18n="benefit3Title">Темп на старте</div>
+                          <p class="animate-fade-up" data-i18n="benefit3Text">
                               Знаете свой LT2&nbsp;&mdash; знаете темп на&nbsp;всю дистанцию. Не&nbsp;взорвётесь на&nbsp;середине марафона, не&nbsp;придёте с&nbsp;запасом.
                           </p>
                       </div>
@@ -238,8 +271,8 @@
                   <div class="about-options-grid__item">
                       <div class="icon"><svg><use href="#icon-energy" /></svg></div>
                       <div class="about-options-grid__item__content">
-                          <div class="h5">Экономия углеводов</div>
-                          <p class="animate-fade-up">
+                          <div class="h5" data-i18n="benefit4Title">Экономия углеводов</div>
+                          <p class="animate-fade-up" data-i18n="benefit4Text">
                               Видите, когда начинаете активно жечь гликоген. На&nbsp;ультрадистанциях это разница между финишем и&nbsp;сходом.
                           </p>
                       </div>
@@ -250,13 +283,13 @@
 
       <div class="features">
           <div class="container">
-              <h2 class="h2 block-title">
+              <h2 class="h2 block-title" data-i18n="featuresTitle">
                   Анализатор лактата нового <br />поколения, созданный для спорта
               </h2>
 
               <div class="features__grid">
                   <div class="features__grid__item features__grid__item--lg">
-                      <div class="h3">
+                      <div class="h3" data-i18n="feature1Title">
                           Улучшенное <br />железо
                       </div>
                       <div class="features__grid__item__img">
@@ -268,21 +301,21 @@
                           </div>
                       </div>
                       <div class="features__grid__item__grid animate-fade-up">
-                          <p>Адаптивные датчики температуры</p>
-                          <p>Перезаряжаемый литиевый аккумулятор.</p>
-                          <p>Более мощный чип обработки</p>
-                          <p>Надёжная работа в&nbsp;полевых условиях.</p>
+                          <p data-i18n="feature1p1">Адаптивные датчики температуры</p>
+                          <p data-i18n="feature1p2">Перезаряжаемый литиевый аккумулятор.</p>
+                          <p data-i18n="feature1p3">Более мощный чип обработки</p>
+                          <p data-i18n="feature1p4">Надёжная работа в&nbsp;полевых условиях.</p>
                       </div>
                   </div>
                   <div class="features__grid__item features__grid__item--sm">
-                      <div class="h3">
+                      <div class="h3" data-i18n="feature2Title">
                           Полоски стали <br />еще точнее
                       </div>
                       <div class="features__grid__item__img">
                           <img src="images/strips.webp" alt="Полоски" loading="lazy">
                       </div>
                       <div class="features__grid__item__grid animate-fade-up">
-                          <p>Тест-полоски анализатора лактата включают золотые бета электроды, что повышает точность результатов анализа путем улучшения и&nbsp;стандартизации электрической передачи от&nbsp;зоны реакции тест-полоски к&nbsp;анализатору.</p>
+                          <p data-i18n="feature2Text">Тест-полоски анализатора лактата включают золотые бета электроды, что повышает точность результатов анализа путем улучшения и&nbsp;стандартизации электрической передачи от&nbsp;зоны реакции тест-полоски к&nbsp;анализатору.</p>
                       </div>
                   </div>
               </div>
@@ -293,21 +326,21 @@
           <div class="container">
               <div class="interface__body">
                   <div class="interface__description animate-fade-up">
-                      <div class="h4">
+                      <div class="h4" data-i18n="interfaceTitle">
                           Интерфейс созданный для спортсменов
                       </div>
                       <div class="interface__img show-mobile">
                           <img src="images/notebook_mobile.webp" alt="Ноутбук" loading="lazy">
                       </div>
                       <div class="interface__description__block">
-                          <p>
+                          <p data-i18n="interfaceText1">
                               Определяй свои зоны, проходи тесты в&nbsp;нашем приложении Training Endurance, выставляй зоны в&nbsp;устройстве и&nbsp;контролируй свои тренировки, как никогда точно.
                           </p>
-                          <p>
+                          <p data-i18n="interfaceText2">
                               Видно, при какой нагрузке был каждый замер. Вся история хранится в&nbsp;профиле. Сравниваете пороги за&nbsp;тренировку на&nbsp;одном экране.
                           </p>
 
-                          <div class="badge">
+                          <div class="badge" data-i18n="badgeText">
                               Доступно в PRO подписке ТЕ
                           </div>
                       </div>
@@ -324,20 +357,20 @@
               <div class="zones__grid">
                   <div class="zones__description">
                       <div class="zones__description__content">
-                        <div class="h2 animate-fade-up">
+                        <div class="h2 animate-fade-up" data-i18n="zonesTitle">
                             Не&nbsp;просто цифры&nbsp;&mdash; <span class="red">понятные зоны</span>
                         </div>
-                          <div class="h5 animate-fade-up">
+                          <div class="h5 animate-fade-up" data-i18n="zonesSubtitle">
                               Лактометр показывает 2.7&nbsp;ммоль/л.<br />Это много или мало? Зависит от&nbsp;ваших порогов.
                           </div>
-                          <p class="gray animate-fade-up">
+                          <p class="gray animate-fade-up" data-i18n="zonesText">
                               Интерфейс лактометра&nbsp;TE сразу показывает зону интенсивности. Замерили&nbsp;&mdash; увидели &laquo;Зона&nbsp;2&raquo;&nbsp;&mdash; поняли, что работаете в&nbsp;нужном диапазоне. Без калькулятора в&nbsp;голове.
                           </p>
                           <div class="zones__notice animate-fade-up">
                             <div class="icon">
                                 <svg><use href="#icon-zone" /></svg>
                             </div>
-                              <div class="zone__notice__text">
+                              <div class="zone__notice__text" data-i18n="zonesNotice">
                                   Зоны можно настроить индивидуально под ваши пороги LT1 и LT2.
                               </div>
                           </div>
@@ -354,13 +387,13 @@
           <div class="container">
               <div class="why-lactate__description">
                   <div class="why-lactate__description__item hide-mobile animate-fade-up">
-                      <div class="h2">
+                      <div class="h2" data-i18n="whyTitle">
                           Почему лактат <span class="red">точнее пульса</span>
                       </div>
-                      <p class="gray">
+                      <p class="gray" data-i18n="whyText1">
                           Пульс врёт. При обезвоживании, недосыпе, стрессе, жаре&nbsp;&mdash; пульсовые зоны плывут. Вы&nbsp;думаете, что работаете во&nbsp;второй зоне, а&nbsp;на&nbsp;самом деле уже в&nbsp;третьей.
                       </p>
-                      <p class="gray">
+                      <p class="gray" data-i18n="whyText2">
                           Лактат показывает реальную картину: какую энергетическую систему вы&nbsp;сейчас используете и&nbsp;сколько ещё можете держать этот темп.
                       </p>
                   </div>
@@ -370,11 +403,11 @@
                               <div class="icon icon--blue">
                                   <svg><use href="#icon-heart" /></svg>
                               </div>
-                              LT1 — первый порог
+                              <span data-i18n="lt1Label">LT1 — первый порог</span>
                           </div>
-                          <p>Ниже него вы&nbsp;сжигаете преимущественно жиры и&nbsp;можете работать часами.</p>
+                          <p data-i18n="lt1Text">Ниже него вы&nbsp;сжигаете преимущественно жиры и&nbsp;можете работать часами.</p>
                           <div class="description__item__footer">
-                                <div class="h4 blue">1.3 – 2.5 ммоль/л</div>
+                                <div class="h4 blue" data-i18n="lt1Range">1.3 – 2.5 ммоль/л</div>
                           </div>
                       </div>
                       <div class="description__item animate-fade-up">
@@ -382,11 +415,11 @@
                               <div class="icon icon--red">
                                   <svg><use href="#icon-heart-rate" /></svg>
                               </div>
-                              LT2 — второй порог (ПАНО)
+                              <span data-i18n="lt2Label">LT2 — второй порог (ПАНО)</span>
                           </div>
-                          <p>Выше него лактат начинает накапливаться, и&nbsp;вы&nbsp;неизбежно замедлитесь. На&nbsp;этом пороге вы&nbsp;можете держать темп марафона или половинки Ironman.</p>
+                          <p data-i18n="lt2Text">Выше него лактат начинает накапливаться, и&nbsp;вы&nbsp;неизбежно замедлитесь. На&nbsp;этом пороге вы&nbsp;можете держать темп марафона или половинки Ironman.</p>
                           <div class="description__item__footer">
-                              <div class="h4 red">2.5 – 4.5 ммоль/л</div>
+                              <div class="h4 red" data-i18n="lt2Range">2.5 – 4.5 ммоль/л</div>
                           </div>
                       </div>
                   </div>
@@ -397,29 +430,29 @@
                   </div>
                   <div class="why-lactate__about__description">
                       <div class="about__description__item animate-fade-up">
-                          <div class="h5">Измерение</div>
+                          <div class="h5" data-i18n="specBlock1Title">Измерение</div>
                           <ul class="about__description__text">
-                              <li>Время замера&nbsp;&mdash; 10&nbsp;секунд</li>
-                              <li>Объём крови&nbsp;&mdash; 0.8 мкл</li>
-                              <li>Электрохимический биосенсор</li>
-                              <li>Золотые электроды</li>
+                              <li data-i18n="specBlock1li1">Время замера&nbsp;&mdash; 10&nbsp;секунд</li>
+                              <li data-i18n="specBlock1li2">Объём крови&nbsp;&mdash; 0.8 мкл</li>
+                              <li data-i18n="specBlock1li3">Электрохимический биосенсор</li>
+                              <li data-i18n="specBlock1li4">Золотые электроды</li>
                           </ul>
                       </div>
                       <div class="about__description__item animate-fade-up">
-                          <div class="h5">Условия работы</div>
+                          <div class="h5" data-i18n="specBlock2Title">Условия работы</div>
                           <ul class="about__description__text">
-                              <li>Рабочая температура 10&mdash;40&deg;C</li>
-                              <li>Bluetooth-синхронизация</li>
-                              <li>Интеграция с&nbsp;платформой&nbsp;TE</li>
+                              <li data-i18n="specBlock2li1">Рабочая температура 10&mdash;40&deg;C</li>
+                              <li data-i18n="specBlock2li2">Bluetooth-синхронизация</li>
+                              <li data-i18n="specBlock2li3">Интеграция с&nbsp;платформой&nbsp;TE</li>
                           </ul>
                       </div>
                       <div class="about__description__item animate-fade-up">
-                          <div class="h5">Устройство</div>
+                          <div class="h5" data-i18n="specBlock3Title">Устройство</div>
                           <ul class="about__description__text">
-                              <li>Литиевая батарея с&nbsp;USB-зарядкой</li>
-                              <li>Память на&nbsp;7000 измерений</li>
-                              <li>Автоматический выброс полоски</li>
-                              <li>Срок службы&nbsp;&mdash; 5&nbsp;лет</li>
+                              <li data-i18n="specBlock3li1">Литиевая батарея с&nbsp;USB-зарядкой</li>
+                              <li data-i18n="specBlock3li2">Память на&nbsp;7000 измерений</li>
+                              <li data-i18n="specBlock3li3">Автоматический выброс полоски</li>
+                              <li data-i18n="specBlock3li4">Срок службы&nbsp;&mdash; 5&nbsp;лет</li>
                           </ul>
                       </div>
                   </div>
@@ -427,15 +460,15 @@
           </div>
       </div>
 
-      <div class="posts">
+      <div class="posts" id="posts">
           <div class="container">
               <div class="posts__header">
-                  <div class="h2">Статьи</div>
+                  <div class="h2" data-i18n="postsTitle">Статьи</div>
                   <div class="posts__arrows hide-mobile">
-                      <button class="posts__arrow posts__arrow--prev" aria-label="Назад">
+                      <button class="posts__arrow posts__arrow--prev" data-i18n-aria="ariaLabelPrev" aria-label="Назад">
                           <svg width="10" height="16" viewBox="0 0 10 16" fill="none"><path d="M9 1L2 8L9 15" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
                       </button>
-                      <button class="posts__arrow posts__arrow--next" aria-label="Вперёд">
+                      <button class="posts__arrow posts__arrow--next" data-i18n-aria="ariaLabelNext" aria-label="Вперёд">
                           <svg width="10" height="16" viewBox="0 0 10 16" fill="none"><path d="M1 1L8 8L1 15" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
                       </button>
                   </div>
@@ -448,58 +481,58 @@
                       <div class="posts__slide__img">
                         <img src="images/slides/1.png" alt="Как измерить лактат во время тренировки">
                       </div>
-                      <div class="posts__slide__caption">Как измерить лактат во время тренировки.</div>
+                      <div class="posts__slide__caption" data-i18n="slide1Caption">Как измерить лактат во время тренировки.</div>
                   </div>
                   <div class="posts__slide">
                       <div class="posts__slide__img">
                         <img src="images/slides/2.png" alt="Почему спортсмены измеряют лактат">
                       </div>
-                      <div class="posts__slide__caption">Почему спортсмены измеряют лактат?</div>
+                      <div class="posts__slide__caption" data-i18n="slide2Caption">Почему спортсмены измеряют лактат?</div>
                   </div>
                   <div class="posts__slide">
                       <div class="posts__slide__img">
                         <img src="images/slides/3.png" alt="Что такое лактатный порог">
                       </div>
-                      <div class="posts__slide__caption">Что такое лактатный порог?</div>
+                      <div class="posts__slide__caption" data-i18n="slide3Caption">Что такое лактатный порог?</div>
                   </div>
                   <div class="posts__slide">
                       <div class="posts__slide__img">
                         <img src="images/slides/1.png" alt="Лактат и нагрузка">
                       </div>
-                      <div class="posts__slide__caption">Лактат и нагрузка: как связаны?</div>
+                      <div class="posts__slide__caption" data-i18n="slide4Caption">Лактат и нагрузка: как связаны?</div>
                   </div>
                     <div class="posts__slide">
                         <div class="posts__slide__img">
                             <img src="images/slides/1.png" alt="Как измерить лактат во время тренировки">
                         </div>
-                        <div class="posts__slide__caption">Как измерить лактат во время тренировки.</div>
+                        <div class="posts__slide__caption" data-i18n="slide1Caption">Как измерить лактат во время тренировки.</div>
                     </div>
                     <div class="posts__slide">
                         <div class="posts__slide__img">
                             <img src="images/slides/2.png" alt="Почему спортсмены измеряют лактат">
                         </div>
-                        <div class="posts__slide__caption">Почему спортсмены измеряют лактат?</div>
+                        <div class="posts__slide__caption" data-i18n="slide2Caption">Почему спортсмены измеряют лактат?</div>
                     </div>
                     <div class="posts__slide">
                         <div class="posts__slide__img">
                             <img src="images/slides/3.png" alt="Что такое лактатный порог">
                         </div>
-                        <div class="posts__slide__caption">Что такое лактатный порог?</div>
+                        <div class="posts__slide__caption" data-i18n="slide3Caption">Что такое лактатный порог?</div>
                     </div>
                     <div class="posts__slide">
                         <div class="posts__slide__img">
                             <img src="images/slides/1.png" alt="Лактат и нагрузка">
                         </div>
-                        <div class="posts__slide__caption">Лактат и нагрузка: как связаны?</div>
+                        <div class="posts__slide__caption" data-i18n="slide4Caption">Лактат и нагрузка: как связаны?</div>
                     </div>
               </div>
               </div>
           </div>
       </div>
 
-      <div class="unpacking animate-fade-up">
+      <div class="unpacking animate-fade-up" id="video">
           <div class="container">
-              <div class="block-title h2">Распаковка</div>
+              <div class="block-title h2" data-i18n="unpackingTitle">Распаковка</div>
 
               <div class="unpacking__video">
                   <iframe src="https://www.youtube.com/embed/vmCi-KYUHz4" allowfullscreen></iframe>
@@ -509,29 +542,29 @@
 
       <div class="price">
           <div class="container">
-              <div class="block-title h2">Стоимость</div>
+              <div class="block-title h2" data-i18n="priceTitle">Стоимость</div>
               <div class="price__grid">
                   <div class="price__grid__item">
                       <div class="price__grid__item__block">
-                          <div class="h5">Анализатор лактата</div>
-                          <div class="h2 main-price">27 000 ₽</div>
-                          <a href="#" class="btn">ЗАКАЗАТЬ</a>
+                          <div class="h5" data-i18n="price1Title">Анализатор лактата</div>
+                          <div class="h2 main-price" data-i18n="price1Value">27 000 ₽</div>
+                          <a href="#" class="btn" data-i18n="btnOrderUpper">ЗАКАЗАТЬ</a>
                       </div>
                       <div class="price__grid__item__footer">
                           <ul class="price__grid__item__list">
-                              <li>
+                              <li data-i18n="price1li1">
                                   Лактометр Training Endurance
                               </li>
-                              <li>
+                              <li data-i18n="price1li2">
                                   Мягкий кейс для переноски на тренировки
                               </li>
-                              <li>
+                              <li data-i18n="price1li3">
                                   Зарядное устройство USB
                               </li>
-                              <li>
+                              <li data-i18n="price1li4">
                                   Калибровочный чип
                               </li>
-                              <li>
+                              <li data-i18n="price1li5">
                                   Инструкция по эксплуатации
                               </li>
                           </ul>
@@ -539,12 +572,12 @@
                   </div>
                   <div class="price__grid__item">
                       <div class="price__grid__item__block">
-                          <div class="h5">Тест полоски</div>
-                          <div class="h2 main-price">2500 / <span>25 шт</span></div>
-                          <a href="#" class="btn">ЗАКАЗАТЬ</a>
+                          <div class="h5" data-i18n="price2Title">Тест полоски</div>
+                          <div class="h2 main-price" data-i18n="price2Value">2500 / <span>25 шт</span></div>
+                          <a href="#" class="btn" data-i18n="btnOrderUpper">ЗАКАЗАТЬ</a>
                       </div>
                       <div class="price__grid__item__footer">
-                          <div class="price__grid__item__block__notice">
+                          <div class="price__grid__item__block__notice" data-i18n="price2Notice">
                               Для анализатора лактата ТЕ подходят только полоски ТЕ
                           </div>
                       </div>
@@ -561,21 +594,21 @@
                           </a>
                       </div>
                       <div class="footer__grid__item">
-                          <div class="h5">Информация</div>
+                          <div class="h5" data-i18n="footerInfoTitle">Информация</div>
                           <ul class="footer__grid__list">
                               <li>
-                                  <span class="text-decoration">Пользовательское соглашение</span>
+                                  <span class="text-decoration" data-i18n="footerLinkTerms">Пользовательское соглашение</span>
                               </li>
                               <li>
-                                  <span class="text-decoration">Оферта</span>
+                                  <span class="text-decoration" data-i18n="footerLinkOffer">Оферта</span>
                               </li>
                               <li>
-                                  <span class="text-decoration">Обмен и возврат</span>
+                                  <span class="text-decoration" data-i18n="footerLinkReturn">Обмен и возврат</span>
                               </li>
                           </ul>
                       </div>
                       <div class="footer__grid__item">
-                          <div class="h5">Контакты</div>
+                          <div class="h5" data-i18n="footerContactsTitle">Контакты</div>
                           <ul class="footer__grid__list">
                               <li>
                                   <a href="tel:+79222079772">+7 922 207 97 72</a>
@@ -604,14 +637,14 @@
       <div class="modal" id="postModal">
           <div class="modal__overlay"></div>
           <div class="modal__dialog">
-              <div class="modal__close" aria-label="Закрыть">
+              <div class="modal__close" data-i18n-aria="modalClose" aria-label="Закрыть">
                   <svg width="36" height="36" viewBox="0 0 36 36" fill="none">
                       <circle cx="18" cy="18" r="18" fill="#333336"/>
                       <path d="M22 14L14 22M14 14L18 18L22 22" stroke="#D6D6D7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                   </svg>
               </div>
               <div class="modal__content">
-                  <h2 class="modal__title">Как измерить лактат во время тренировки</h2>
+                  <h2 class="modal__title" data-i18n="modalTitle">Как измерить лактат во время тренировки</h2>
                   <div class="modal__body">
                       <p>Лактат — это не враг и не признак «закисления». Это нормальный метаболит, который образуется при интенсивной работе мышц. Его уровень в крови точно отражает, какую энергетическую систему вы нагружаете прямо сейчас.</p>
                       <img src="images/slides/1.png" alt="">
@@ -631,10 +664,16 @@
   <script src="libs/motion.min.js"></script>
   <script src="libs/jquery.min.js"></script>
   <script src="libs/slick.min.js"></script>
+  <script src="js/translations.js"></script>
   <script src="js/main.js"></script>
 
   <!-- SVG Sprite -->
   <svg xmlns="http://www.w3.org/2000/svg" style="display:none">
+    <defs>
+      <clipPath id="clip-flag-circle">
+        <circle cx="12" cy="12" r="11"/>
+      </clipPath>
+    </defs>
     <symbol id="icon-stopwatch" viewBox="0 0 29 35" fill="none">
       <path d="M11.25 1.5H17.75M14.5 20.7L19.375 15.9M27.5 20.7C27.5 27.7692 21.6797 33.5 14.5 33.5C7.3203 33.5 1.5 27.7692 1.5 20.7C1.5 13.6308 7.3203 7.9 14.5 7.9C21.6797 7.9 27.5 13.6308 27.5 20.7Z" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
     </symbol>
@@ -669,6 +708,50 @@
       </symbol>
       <symbol id="icon-heart-rate" viewBox="0 0 24 24" fill="none">
           <path d="M2 12H5L7 6L10 18L13 10L15 14L17 12H22" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      </symbol>
+
+      <symbol id="icon-flag-ru" viewBox="0 0 24 24" fill="none">
+          <path d="M12 23C18.0751 23 23 18.0751 23 12C23 5.92487 18.0751 1 12 1C5.92487 1 1 5.92487 1 12C1 18.0751 5.92487 23 12 23Z" fill="#F0F0F0"/>
+          <path d="M22.3158 15.826C22.758 14.6343 23 13.3454 23 11.9999C23 10.6544 22.758 9.36548 22.3158 8.17383H1.68419C1.24204 9.36548 1 10.6544 1 11.9999C1 13.3454 1.24204 14.6343 1.68419 15.826L12 16.7825L22.3158 15.826Z" fill="#0052B4"/>
+          <path d="M12.0033 23.0001C16.7329 23.0001 20.7649 20.015 22.3191 15.8262H1.6875C3.24172 20.015 7.27369 23.0001 12.0033 23.0001Z" fill="#D80027"/>
+      </symbol>
+
+      <symbol id="icon-flag-us" viewBox="0 0 24 24" fill="none">
+          <circle cx="12" cy="12" r="11" fill="#F0F0F0"/>
+          <g clip-path="url(#clip-flag-circle)">
+              <!-- 7 красных полос: h = 22/13 ≈ 1.692 -->
+              <rect x="1" y="1"      width="22" height="1.692" fill="#D80027"/>
+              <rect x="1" y="4.385"  width="22" height="1.692" fill="#D80027"/>
+              <rect x="1" y="7.769"  width="22" height="1.692" fill="#D80027"/>
+              <rect x="1" y="11.154" width="22" height="1.692" fill="#D80027"/>
+              <rect x="1" y="14.538" width="22" height="1.692" fill="#D80027"/>
+              <rect x="1" y="17.923" width="22" height="1.692" fill="#D80027"/>
+              <rect x="1" y="21.308" width="22" height="1.692" fill="#D80027"/>
+              <!-- Синий кантон: 7 полос в высоту × ~40% ширины -->
+              <rect x="1" y="1" width="9" height="11.846" fill="#0052B4"/>
+              <!-- Звёзды: чередующиеся ряды 4 и 3 точки -->
+              <circle cx="2.6"  cy="2.4"  r="0.55" fill="#F0F0F0"/>
+              <circle cx="4.5"  cy="2.4"  r="0.55" fill="#F0F0F0"/>
+              <circle cx="6.4"  cy="2.4"  r="0.55" fill="#F0F0F0"/>
+              <circle cx="8.3"  cy="2.4"  r="0.55" fill="#F0F0F0"/>
+              <circle cx="3.55" cy="4.1"  r="0.55" fill="#F0F0F0"/>
+              <circle cx="5.45" cy="4.1"  r="0.55" fill="#F0F0F0"/>
+              <circle cx="7.35" cy="4.1"  r="0.55" fill="#F0F0F0"/>
+              <circle cx="2.6"  cy="5.8"  r="0.55" fill="#F0F0F0"/>
+              <circle cx="4.5"  cy="5.8"  r="0.55" fill="#F0F0F0"/>
+              <circle cx="6.4"  cy="5.8"  r="0.55" fill="#F0F0F0"/>
+              <circle cx="8.3"  cy="5.8"  r="0.55" fill="#F0F0F0"/>
+              <circle cx="3.55" cy="7.5"  r="0.55" fill="#F0F0F0"/>
+              <circle cx="5.45" cy="7.5"  r="0.55" fill="#F0F0F0"/>
+              <circle cx="7.35" cy="7.5"  r="0.55" fill="#F0F0F0"/>
+              <circle cx="2.6"  cy="9.2"  r="0.55" fill="#F0F0F0"/>
+              <circle cx="4.5"  cy="9.2"  r="0.55" fill="#F0F0F0"/>
+              <circle cx="6.4"  cy="9.2"  r="0.55" fill="#F0F0F0"/>
+              <circle cx="8.3"  cy="9.2"  r="0.55" fill="#F0F0F0"/>
+              <circle cx="3.55" cy="10.9" r="0.55" fill="#F0F0F0"/>
+              <circle cx="5.45" cy="10.9" r="0.55" fill="#F0F0F0"/>
+              <circle cx="7.35" cy="10.9" r="0.55" fill="#F0F0F0"/>
+          </g>
       </symbol>
 
   </svg>
