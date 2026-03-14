@@ -913,6 +913,13 @@ table {
     position: relative;
     z-index: 2;
     padding-bottom: 15.1rem;
+
+    & .slick-track {
+        display: flex;
+    }
+    & .slick-slide {
+        height: auto;
+    }
 }
 .posts__header {
     display: flex;
@@ -960,7 +967,6 @@ table {
     overflow: hidden;
     position: relative;
     margin-right: 3rem;
-    aspect-ratio: 4/5;
     background: #101010;
     cursor: pointer;
     transition: transform 0.3s;
@@ -1105,6 +1111,22 @@ table {
 .modal__content::-webkit-scrollbar-thumb {
     background: rgba(255, 255, 255, 0.3);
     border-radius: 2px;
+}
+.modal--post .modal__body h2,
+.modal--post .modal__body h3 {
+    color: #fff;
+}
+.modal--post .modal__body h2{
+    font-size: max(20px, 2.6rem);
+    margin-bottom: 15px;
+}
+.modal--post .modal__body h3 {
+    font-size: max(18px, 2.2rem);
+    margin-bottom: 10px;
+}
+.modal--post .modal__body img {
+    max-height: 300px;
+    object-fit: contain;
 }
 /*unpacking*/
 .unpacking {
@@ -1558,8 +1580,8 @@ a {
     .posts__slider-wrap .container {
         padding: 0;
     }
-    .posts__slider {
-        padding: 0 20px;
+    .posts__slider .slick-list {
+        padding: 0 0 0 20px;
     }
     .modal__title {
         font-size: 30px;

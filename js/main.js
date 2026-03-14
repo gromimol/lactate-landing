@@ -96,30 +96,37 @@ document.querySelectorAll('.doc-link').forEach(btn => {
 // Slider
 // =========================================
 
-$('.posts__slider').slick({
-  slidesToScroll: 1,
+const $postsSlider = $('.posts__slider');
+
+$postsSlider.slick({
   arrows: true,
   prevArrow: $('.posts__arrow--prev'),
   nextArrow: $('.posts__arrow--next'),
-  infinite: false,
+  infinite: true,
   dots: false,
   swipe: true,
   variableWidth: true,
+  autoplay: true,
 });
-
 
 // =========================================
 // Modal
 // =========================================
 
-function openModal() {
+function openModal(postId) {
+  const post = posts.find(p => p.id === postId);
+  if (!post) return;
+  $('#postModal .modal__title').text(post.title);
+  $('#postModal .modal__body').html(`<img src="${post.image}" alt="${post.title}">${post.body}`);
   $('body').addClass('modal-open');
 }
 function closeModal() {
   $('body').removeClass('modal-open');
 }
 
-$(document).on('click', '.posts__slide', openModal);
+$(document).on('click', '.posts__slide', function() {
+  openModal($(this).data('post'));
+});
 $(document).on('click', '.modal__close', closeModal);
 $(document).on('click', '.modal__overlay', closeModal);
 
