@@ -5,7 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="">
   <title>Анализатор лактата</title>
-  <link rel="stylesheet" href="libs/slick.min.css">
+  <link rel="preload" href="fonts/SF-Pro-Display-Medium.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="fonts/SF-Pro-Display-Bold.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="libs/slick.min.css" media="print" onload="this.media='all'">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -123,7 +125,7 @@
                     </div>
                     <div class="first-screen__img">
                         <picture>
-                            <img src="images/analizator_desctop.webp" alt="Анализатор лактата">
+                            <img src="images/analizator_desctop.webp" alt="Анализатор лактата" fetchpriority="high">
                         </picture>
                         <div class="first-screen__message" data-i18n="heroNotMedical">
                             Не является медицинским устройством
@@ -218,8 +220,8 @@
             </div>
 
           <div class="first-screen__bg">
-              <video class="hero__video" autoplay muted loop playsinline>
-              <source src="images/background_lactate.mp4" type="video/mp4">
+              <video class="hero__video" autoplay muted loop playsinline poster="images/poster.webp">
+                <source src="images/background_lactate.mp4" type="video/mp4">
               </video>
           </div>
         </div>
@@ -491,49 +493,49 @@
                 <div class="posts__slider">
                   <div class="posts__slide">
                       <div class="posts__slide__img">
-                        <img src="images/slides/1.png" alt="Как измерить лактат во время тренировки">
+                        <picture><source srcset="images/slides/1.webp" type="image/webp"><img src="images/slides/1.png" alt="Как измерить лактат во время тренировки"></picture>
                       </div>
                       <div class="posts__slide__caption" data-i18n="slide1Caption">Как измерить лактат во время тренировки.</div>
                   </div>
                   <div class="posts__slide">
                       <div class="posts__slide__img">
-                        <img src="images/slides/2.png" alt="Почему спортсмены измеряют лактат">
+                        <picture><source srcset="images/slides/2.webp" type="image/webp"><img src="images/slides/2.png" alt="Почему спортсмены измеряют лактат"></picture>
                       </div>
                       <div class="posts__slide__caption" data-i18n="slide2Caption">Почему спортсмены измеряют лактат?</div>
                   </div>
                   <div class="posts__slide">
                       <div class="posts__slide__img">
-                        <img src="images/slides/3.png" alt="Что такое лактатный порог">
+                        <picture><source srcset="images/slides/3.webp" type="image/webp"><img src="images/slides/3.png" alt="Что такое лактатный порог"></picture>
                       </div>
                       <div class="posts__slide__caption" data-i18n="slide3Caption">Что такое лактатный порог?</div>
                   </div>
                   <div class="posts__slide">
                       <div class="posts__slide__img">
-                        <img src="images/slides/1.png" alt="Лактат и нагрузка">
+                        <picture><source srcset="images/slides/1.webp" type="image/webp"><img src="images/slides/1.png" alt="Лактат и нагрузка"></picture>
                       </div>
                       <div class="posts__slide__caption" data-i18n="slide4Caption">Лактат и нагрузка: как связаны?</div>
                   </div>
                     <div class="posts__slide">
                         <div class="posts__slide__img">
-                            <img src="images/slides/1.png" alt="Как измерить лактат во время тренировки">
+                            <picture><source srcset="images/slides/1.webp" type="image/webp"><img src="images/slides/1.png" alt="Как измерить лактат во время тренировки"></picture>
                         </div>
                         <div class="posts__slide__caption" data-i18n="slide1Caption">Как измерить лактат во время тренировки.</div>
                     </div>
                     <div class="posts__slide">
                         <div class="posts__slide__img">
-                            <img src="images/slides/2.png" alt="Почему спортсмены измеряют лактат">
+                            <picture><source srcset="images/slides/2.webp" type="image/webp"><img src="images/slides/2.png" alt="Почему спортсмены измеряют лактат"></picture>
                         </div>
                         <div class="posts__slide__caption" data-i18n="slide2Caption">Почему спортсмены измеряют лактат?</div>
                     </div>
                     <div class="posts__slide">
                         <div class="posts__slide__img">
-                            <img src="images/slides/3.png" alt="Что такое лактатный порог">
+                            <picture><source srcset="images/slides/3.webp" type="image/webp"><img src="images/slides/3.png" alt="Что такое лактатный порог"></picture>
                         </div>
                         <div class="posts__slide__caption" data-i18n="slide3Caption">Что такое лактатный порог?</div>
                     </div>
                     <div class="posts__slide">
                         <div class="posts__slide__img">
-                            <img src="images/slides/1.png" alt="Лактат и нагрузка">
+                            <picture><source srcset="images/slides/1.webp" type="image/webp"><img src="images/slides/1.png" alt="Лактат и нагрузка"></picture>
                         </div>
                         <div class="posts__slide__caption" data-i18n="slide4Caption">Лактат и нагрузка: как связаны?</div>
                     </div>
@@ -665,7 +667,7 @@
                   <h2 class="modal__title" data-i18n="modalTitle">Как измерить лактат во время тренировки</h2>
                   <div class="modal__body">
                       <p>Лактат — это не враг и не признак «закисления». Это нормальный метаболит, который образуется при интенсивной работе мышц. Его уровень в крови точно отражает, какую энергетическую систему вы нагружаете прямо сейчас.</p>
-                      <img src="images/slides/1.png" alt="">
+                      <picture><source srcset="images/slides/1.webp" type="image/webp"><img src="images/slides/1.png" alt=""></picture>
                       <p>Чтобы измерить лактат на тренировке, вам потребуется портативный лактометр и тест-полоска. Небольшой прокол пальца или мочки уха — и через 10 секунд у вас на дисплее конкретное число в ммоль/л.</p>
                       <p>Замер лучше делать сразу после ключевого отрезка, пока концентрация ещё не успела снизиться. На длительной — каждые 20–30 минут, на интервалах — сразу после каждого повтора или серии.</p>
                       <p>

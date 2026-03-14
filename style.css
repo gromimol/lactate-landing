@@ -436,7 +436,7 @@ table {
         background: linear-gradient(to top, #050000 0%, transparent 20rem),
                     url(images/mountain.webp) center 0 no-repeat;
         background-size: cover;
-        mix-blend-mode: hard-light;
+        /*mix-blend-mode: hard-light;*/
     }
 
     & .block-title {
