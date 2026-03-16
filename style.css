@@ -1511,7 +1511,6 @@ table {
 .unpacking__video {
     border-radius: var(--radius);
     background: #101010;
-    /*height: 46rem;*/
     overflow: hidden;
 }
 .unpacking__video iframe,
@@ -1902,9 +1901,6 @@ a {
     .posts {
         margin-top: 0;
         padding-bottom: 40px;
-    }
-    .unpacking__video {
-        height: 207px;
     }
     .unpacking {
         margin-bottom: 50px;
