@@ -121,8 +121,9 @@ function openModal(postId) {
   const post = posts.find(p => p.id === postId);
   if (!post) return;
   $('#postModal .modal__title').text(post.title);
-  $('#postModal .modal__body').html(`<img src="${post.image}" alt="${post.title}">${post.body}`);
+  $('#postModal .modal__body').html(`${post.body}`);
   $('body').addClass('modal-open');
+  $('#postModal .modal__content').scrollTop(0);
 }
 function closeModal() {
   $('body').removeClass('modal-open');
