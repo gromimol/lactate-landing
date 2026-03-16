@@ -426,6 +426,11 @@ table {
     margin-bottom: 12.1rem;
     position: relative;
 
+    & .container {
+        position: relative;
+        z-index: 3;
+    }
+
     &::after {
         content: '';
         width: 100%;

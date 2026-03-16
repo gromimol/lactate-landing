@@ -9,7 +9,7 @@ const translations = {
 
     // Первый экран
     heroTitle: 'Анализатор лактата',
-    heroSubtitle: 'Training Endurance вместе Eaglenos Inc',
+    heroSubtitle: 'Training Endurance совместно с Eaglenos',
     heroNotMedical: 'Не является медицинским устройством',
 
     // Характеристики на первом экране
@@ -291,7 +291,7 @@ const translations = {
 
     // Hero
     heroTitle: 'Lactate Analyzer',
-    heroSubtitle: 'Training Endurance together with Eaglenos Inc',
+    heroSubtitle: 'Training Endurance in partnership with Eaglenos',
     heroNotMedical: 'Not a medical device',
 
     // Hero specs
