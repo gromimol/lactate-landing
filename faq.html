@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Справочник лактометра Training Endurance. Вопросы и ответы, коды ошибок, инструкции.">
+  <title>Справочник — Training Endurance</title>
+  <link rel="preload" href="fonts/SF-Pro-Display-Medium.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="fonts/SF-Pro-Display-Bold.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header class="header">
+    <div class="container">
+      <div class="header__left">
+        <div class="logo"><a href="index.html"><img src="images/logo.svg" alt="Training Endurance"></a></div>
+        <ul class="menu">
+          <li><a href="index.html#posts" id="menuArticles">Статьи</a></li>
+          <li><a href="index.html#video" id="menuVideo">Видео</a></li>
+        </ul>
+      </div>
+      <div class="header__right">
+        <a href="faq.html" class="btn-info btn-info--active">
+          <span class="btn-info__icon">
+            <svg><use href="#icon-info" /></svg>
+          </span>
+          <span class="hide-mobile" id="btnFaq">Справочник</span>
+        </a>
+        <div class="lang-switcher" id="langSwitcher">
+          <button class="lang-switcher__btn" type="button">
+            <svg class="lang-switcher__flag" width="24" height="24"><use href="#icon-flag-ru"/></svg>
+            <span class="lang-switcher__code">RU</span>
+            <svg class="lang-switcher__chevron" width="10" height="6" viewBox="0 0 10 6" fill="none">
+              <path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </button>
+          <div class="lang-switcher__dropdown">
+            <button class="lang-switcher__option" type="button" data-lang="ru" data-icon="#icon-flag-ru" data-code="RU">
+              <svg width="24" height="24"><use href="#icon-flag-ru"/></svg> RU
+            </button>
+            <button class="lang-switcher__option" type="button" data-lang="en" data-icon="#icon-flag-us" data-code="EN">
+              <svg width="24" height="24"><use href="#icon-flag-us"/></svg> EN
+            </button>
+          </div>
+        </div>
+        <ul class="social">
+          <li>
+            <a href="#">
+              <img src="images/telegram.svg" alt="Telegram" loading="lazy">
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </header>
+
+  <main class="faq-page">
+    <div class="container">
+        <div class="faq-catalog__head">
+            <h1 class="faq-catalog__title" id="faqTitle">Справочник</h1>
+            <div class="questions-count">34 вопроса</div>
+        </div>
+        <div class="faq-page__body">
+            <div class="faq-page__content">
+              <input type="text" class="faq-search" id="faqSearch" placeholder="Поиск по вопросам...">
+              <div id="faqCatalog" class="faq-catalog">
+                <div id="faqSections" class="faq-sections"></div>
+              </div>
+
+              <div id="faqArticle" class="faq-article" hidden>
+                <button class="faq-back" id="faqBack">← Все вопросы</button>
+                <div class="faq-article__meta" id="faqArticleMeta"></div>
+                <h1 class="faq-article__title" id="faqArticleTitle"></h1>
+                <div class="faq-article__body" id="faqArticleBody"></div>
+                <div class="faq-article__nav" id="faqArticleNav"></div>
+              </div>
+            </div>
+            <div class="faq-page__support">
+                <div id="faqNoAnswer" class="faq-page__support__title">Не нашли ответ?</div>
+                <ul class="support-links-list">
+                    <li>
+                        <a href="#">
+                            <span class="icon">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M12 24C18.629 24 24 18.629 24 12C24 5.371 18.629 0 12 0C5.371 0 0 5.371 0 12C0 18.629 5.371 24 12 24ZM5.491 11.74L17.061 7.279C17.598 7.085 18.067 7.41 17.893 8.222L17.894 8.221L15.924 17.502C15.778 18.16 15.387 18.32 14.84 18.01L11.84 15.799L10.393 17.193C10.233 17.353 10.098 17.488 9.788 17.488L10.001 14.435L15.561 9.412C15.803 9.199 15.507 9.079 15.188 9.291L8.317 13.617L5.355 12.693C4.712 12.489 4.698 12.05 5.491 11.74Z" fill="#545454"/>
+                                </svg>
+                            </span>
+                            telactate
+                        </a>
+                    </li>
+                    <li>
+                        <a href="mailto:info@trainingendurance.com">
+                            <span class="icon">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <circle cx="12" cy="12" r="12" fill="#545454"/>
+                                    <path d="M18 9.6875L12.6054 12.9089C12.4223 13.0086 12.2144 13.0611 12.0027 13.0611C11.791 13.0611 11.5831 13.0086 11.4 12.9089L6 9.6875M7.2 8H16.8C17.4627 8 18 8.50368 18 9.125V15.875C18 16.4963 17.4627 17 16.8 17H7.2C6.53726 17 6 16.4963 6 15.875V9.125C6 8.50368 6.53726 8 7.2 8Z" stroke="black" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </span>
+                            info@trainingendurance.com
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+    </div>
+  </main>
+
+  <svg style="display:none" xmlns="http://www.w3.org/2000/svg">
+      <symbol id="icon-flag-ru" viewBox="0 0 24 24" fill="none">
+          <path d="M12 23C18.0751 23 23 18.0751 23 12C23 5.92487 18.0751 1 12 1C5.92487 1 1 5.92487 1 12C1 18.0751 5.92487 23 12 23Z" fill="#F0F0F0"/>
+          <path d="M22.3158 15.826C22.758 14.6343 23 13.3454 23 11.9999C23 10.6544 22.758 9.36548 22.3158 8.17383H1.68419C1.24204 9.36548 1 10.6544 1 11.9999C1 13.3454 1.24204 14.6343 1.68419 15.826L12 16.7825L22.3158 15.826Z" fill="#0052B4"/>
+          <path d="M12.0033 23.0001C16.7329 23.0001 20.7649 20.015 22.3191 15.8262H1.6875C3.24172 20.015 7.27369 23.0001 12.0033 23.0001Z" fill="#D80027"/>
+      </symbol>
+      <symbol id="icon-flag-us" viewBox="0 0 24 24" fill="none">
+          <path d="M12 23C18.0751 23 23 18.0751 23 12C23 5.92487 18.0751 1 12 1C5.92487 1 1 5.92487 1 12C1 18.0751 5.92487 23 12 23Z" fill="#F0F0F0"/>
+          <path d="M3.27387 5.30273C2.40981 6.42693 1.75828 7.72265 1.37891 9.13026H7.1014L3.27387 5.30273Z" fill="#0052B4"/>
+          <path d="M22.6208 9.13022C22.2415 7.72265 21.5899 6.42693 20.7259 5.30273L16.8984 9.13022H22.6208Z" fill="#0052B4"/>
+          <path d="M1.37891 14.8701C1.75832 16.2777 2.40986 17.5734 3.27387 18.6976L7.10127 14.8701H1.37891Z" fill="#0052B4"/>
+          <path d="M18.6986 3.27391C17.5744 2.40986 16.2787 1.75832 14.8711 1.37891V7.10136L18.6986 3.27391Z" fill="#0052B4"/>
+          <path d="M5.30469 20.7258C6.42888 21.5899 7.7246 22.2414 9.13217 22.6208V16.8984L5.30469 20.7258Z" fill="#0052B4"/>
+          <path d="M9.13213 1.37891C7.72456 1.75832 6.42884 2.40986 5.30469 3.27387L9.13213 7.10131V1.37891Z" fill="#0052B4"/>
+          <path d="M14.8711 22.6208C16.2787 22.2414 17.5744 21.5899 18.6985 20.7259L14.8711 16.8984V22.6208Z" fill="#0052B4"/>
+          <path d="M16.8984 14.8701L20.7259 18.6976C21.5899 17.5735 22.2415 16.2777 22.6208 14.8701H16.8984Z" fill="#0052B4"/>
+          <path d="M22.9069 10.5652H13.4348V1.09311C12.9591 1.03113 12.4798 1.00002 12 1C11.5136 1 11.0349 1.03197 10.5652 1.09311V10.5652H1.09311C1.03113 11.0409 1.00002 11.5202 1 12C1 12.4864 1.03197 12.9651 1.09311 13.4348H10.5652V22.9069C11.5177 23.031 12.4823 23.031 13.4348 22.9069V13.4348H22.9069C22.9689 12.9591 23 12.4798 23 12C23 11.5137 22.968 11.0349 22.9069 10.5652Z" fill="#D80027"/>
+          <path d="M14.8711 14.8702L19.7797 19.7787C20.0053 19.5528 20.2211 19.3172 20.4263 19.0725L16.2238 14.8701H14.8711V14.8702Z" fill="#D80027"/>
+          <path d="M9.13128 14.8701H9.13119L4.22266 19.7787C4.44858 20.0043 4.6842 20.22 4.92885 20.4252L9.13128 16.2227V14.8701Z" fill="#D80027"/>
+          <path d="M9.12939 9.13039V9.1303L4.22081 4.22168C3.99516 4.4476 3.77942 4.68322 3.57422 4.92787L7.77669 9.13034L9.12939 9.13039Z" fill="#D80027"/>
+          <path d="M14.8711 9.13041L19.7797 4.22175C19.5538 3.99609 19.3182 3.78037 19.0735 3.5752L14.8711 7.77767V9.13041Z" fill="#D80027"/>
+      </symbol>
+      <symbol id="icon-info" viewBox="0 0 16 16" fill="none">
+          <path d="M5.713 5.65C5.87757 5.18217 6.20241 4.78767 6.62997 4.53639C7.05753 4.28511 7.56023 4.19326 8.04902 4.2771C8.53782 4.36094 8.98117 4.61507 9.30055 4.99447C9.61994 5.37387 9.79474 5.85407 9.794 6.35C9.794 7.75 7.694 8.45 7.694 8.45M7.75 11.25H7.757M14.75 7.75C14.75 11.616 11.616 14.75 7.75 14.75C3.88401 14.75 0.75 11.616 0.75 7.75C0.75 3.88401 3.88401 0.75 7.75 0.75C11.616 0.75 14.75 3.88401 14.75 7.75Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+      </symbol>
+  </svg>
+
+  <script src="js/faq-translations.js"></script>
+  <script>
+    // === Lang detection ===
+    function detectLang() {
+      const param = new URLSearchParams(window.location.search).get('lang');
+      if (param === 'ru' || param === 'en') { localStorage.setItem('lang', param); return param; }
+      const stored = localStorage.getItem('lang');
+      if (stored === 'ru' || stored === 'en') return stored;
+      return 'ru';
+    }
+
+    let currentLang = detectLang();
+    let currentView = 'catalog';
+    let currentSectionId = null;
+    let currentQuestionId = null;
+
+    document.documentElement.lang = currentLang;
+
+    // === Lang switcher ===
+    const langSwitcher = document.getElementById('langSwitcher');
+    const langBtn = langSwitcher.querySelector('.lang-switcher__btn');
+    const flagEl = langSwitcher.querySelector('.lang-switcher__flag use');
+    const codeEl = langSwitcher.querySelector('.lang-switcher__code');
+
+    function updateLangBtn(lang) {
+      const opt = langSwitcher.querySelector(`.lang-switcher__option[data-lang="${lang}"]`);
+      if (!opt) return;
+      flagEl.setAttribute('href', opt.dataset.icon);
+      codeEl.textContent = opt.dataset.code;
+    }
+
+    updateLangBtn(currentLang);
+
+    langBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      langSwitcher.classList.toggle('lang-switcher--open');
+    });
+
+    langSwitcher.querySelectorAll('.lang-switcher__option').forEach(opt => {
+      opt.addEventListener('click', () => {
+        currentLang = opt.dataset.lang;
+        localStorage.setItem('lang', currentLang);
+        document.documentElement.lang = currentLang;
+        updateLangBtn(currentLang);
+        langSwitcher.classList.remove('lang-switcher--open');
+        applyFaqUI(currentLang);
+        if (currentView === 'catalog') {
+          renderCatalog(currentLang, document.getElementById('faqSearch').value);
+        } else {
+          showArticle(currentSectionId, currentQuestionId, currentLang);
+        }
+      });
+    });
+
+    document.addEventListener('click', () => langSwitcher.classList.remove('lang-switcher--open'));
+
+    // === Apply UI strings ===
+    function applyFaqUI(lang) {
+      const ui = faqUI[lang];
+      document.title = ui.pageTitle;
+      document.getElementById('faqTitle').textContent = ui.title;
+      document.getElementById('faqSearch').placeholder = ui.search;
+      const count = faqData[lang].reduce((sum, s) => sum + s.questions.length, 0);
+      const countLabel = lang === 'ru'
+        ? count % 100 >= 11 && count % 100 <= 14 ? 'вопросов'
+          : count % 10 === 1 ? 'вопрос'
+          : count % 10 >= 2 && count % 10 <= 4 ? 'вопроса'
+          : 'вопросов'
+        : count === 1 ? 'question' : 'questions';
+      document.querySelector('.questions-count').textContent = `${count} ${countLabel}`;
+      document.getElementById('faqNoAnswer').textContent = ui.noAnswer;
+      document.getElementById('btnFaq').textContent = ui.btnFaq;
+      document.getElementById('menuArticles').textContent = ui.menuArticles;
+      document.getElementById('menuVideo').textContent = ui.menuVideo;
+    }
+
+    // === Content rendering ===
+    function formatInline(text) {
+      return text.replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>');
+    }
+
+    function renderContent(text) {
+      if (!text) return '';
+      return text.split('\n').map(raw => {
+        const t = raw.trim();
+        if (!t) return '<div class="faq-spacer"></div>';
+        if (t.startsWith('!warn ')) {
+          return `<div class="faq-warn">${formatInline(t.slice(6))}</div>`;
+        }
+        if (/^\*\*(Step |Шаг |Code |Код |LT |Lactate |VO2 )/.test(t)) {
+          const c = t.replace(/\*\*/g, '');
+          const di = c.indexOf('—'), doti = c.indexOf('.');
+          const sp = di > -1 ? di : (doti > -1 && doti < 50) ? doti + 1 : -1;
+          if (sp > -1) return `<div class="faq-step"><span class="faq-accent">${c.slice(0, sp)}</span><span>${c.slice(sp)}</span></div>`;
+          return `<div class="faq-step faq-accent">${c}</div>`;
+        }
+        if (/^\*\*[^*]+\*\*$/.test(t)) {
+          return `<div class="faq-bold">${t.slice(2, -2)}</div>`;
+        }
+        if (t.startsWith('•')) {
+          return `<div class="faq-bullet"><span class="faq-accent">—</span><span>${formatInline(t.slice(1).trim())}</span></div>`;
+        }
+        const numMatch = t.match(/^(\d+)\.\s*(.*)/);
+        if (numMatch) {
+          return `<div class="faq-numbered"><span class="faq-num">${numMatch[1]}</span><span>${formatInline(numMatch[2])}</span></div>`;
+        }
+        return `<div class="faq-line">${formatInline(t)}</div>`;
+      }).join('');
+    }
+
+    // === Catalog ===
+    function renderCatalog(lang, searchTerm) {
+      const ui = faqUI[lang];
+      const data = faqData[lang];
+      const low = (searchTerm || '').toLowerCase();
+
+      const filtered = data.map(s => ({
+        ...s,
+        questions: s.questions.filter(q =>
+          !low || q.q.toLowerCase().includes(low) || q.a.toLowerCase().includes(low)
+        )
+      })).filter(s => s.questions.length > 0);
+
+      const container = document.getElementById('faqSections');
+
+      if (filtered.length === 0) {
+        container.innerHTML = `<div class="faq-not-found">${ui.notFound}</div>`;
+        return;
+      }
+
+      container.innerHTML = filtered.map(sec => `
+        <div class="faq-section">
+          <div class="faq-section__header">
+            <div class="faq-section__icon">${sec.icon}</div>
+            <h2 class="faq-section__title">${sec.title}</h2>
+          </div>
+          <div class="faq-section__questions">
+            ${sec.questions.map(q => `
+              <button class="faq-question-btn" data-section="${sec.id}" data-question="${q.id}">
+                <span>${q.q}</span>
+                <span class="faq-question-btn__arrow">›</span>
+              </button>
+            `).join('')}
+          </div>
+        </div>
+      `).join('');
+
+      container.querySelectorAll('.faq-question-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+          showArticle(btn.dataset.section, btn.dataset.question, currentLang);
+        });
+      });
+    }
+
+    // === Article ===
+    function showArticle(sectionId, questionId, lang) {
+      const ui = faqUI[lang];
+      const data = faqData[lang];
+      const section = data.find(s => s.id === sectionId);
+      const question = section && section.questions.find(q => q.id === questionId);
+      if (!section || !question) return;
+
+      const flat = data.flatMap(s => s.questions.map(q => ({ sec: s, q })));
+      const idx = flat.findIndex(f => f.sec.id === sectionId && f.q.id === questionId);
+      const prev = idx > 0 ? flat[idx - 1] : null;
+      const next = idx < flat.length - 1 ? flat[idx + 1] : null;
+
+      document.getElementById('faqArticleMeta').innerHTML =
+        `<span class="faq-section-badge">${section.icon} ${section.title}</span>`;
+      document.getElementById('faqArticleTitle').textContent = question.q;
+      document.getElementById('faqArticleBody').innerHTML = renderContent(question.a);
+      document.getElementById('faqBack').textContent = ui.back;
+
+      const navEl = document.getElementById('faqArticleNav');
+      navEl.innerHTML = [
+        prev
+          ? `<button class="faq-nav-btn faq-nav-btn--prev" data-section="${prev.sec.id}" data-question="${prev.q.id}">
+               <span class="faq-nav-btn__label">${ui.prev}</span>
+               <span class="faq-nav-btn__text">${prev.q.q}</span>
+             </button>`
+          : '<div></div>',
+        next
+          ? `<button class="faq-nav-btn faq-nav-btn--next" data-section="${next.sec.id}" data-question="${next.q.id}">
+               <span class="faq-nav-btn__label">${ui.next}</span>
+               <span class="faq-nav-btn__text">${next.q.q}</span>
+             </button>`
+          : '<div></div>'
+      ].join('');
+
+      navEl.querySelectorAll('.faq-nav-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+          showArticle(btn.dataset.section, btn.dataset.question, currentLang);
+          window.scrollTo(0, 0);
+        });
+      });
+
+      document.getElementById('faqCatalog').hidden = true;
+      document.getElementById('faqArticle').hidden = false;
+      window.scrollTo(0, 0);
+
+      currentSectionId = sectionId;
+      currentQuestionId = questionId;
+      currentView = 'article';
+    }
+
+    function showCatalog() {
+      document.getElementById('faqArticle').hidden = true;
+      document.getElementById('faqCatalog').hidden = false;
+      currentView = 'catalog';
+    }
+
+    // === Init ===
+    applyFaqUI(currentLang);
+    renderCatalog(currentLang);
+
+    document.getElementById('faqBack').addEventListener('click', showCatalog);
+    document.getElementById('faqSearch').addEventListener('input', function () {
+      renderCatalog(currentLang, this.value);
+    });
+  </script>
+
+</body>
+</html>
