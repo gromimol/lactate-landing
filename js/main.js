@@ -29,6 +29,10 @@ function applyTranslations(lang) {
     if (t[key] === undefined) return;
     el.setAttribute('aria-label', t[key]);
   });
+
+  document.querySelectorAll('img[src*="_ru."], img[src*="_en."]').forEach(el => {
+    el.src = el.src.replace(/_ru\./, `_${lang}.`).replace(/_en\./, `_${lang}.`);
+  });
 }
 
 const currentLang = detectLang();

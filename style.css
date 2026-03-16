@@ -1139,7 +1139,7 @@ table {
 .unpacking__video {
     border-radius: var(--radius);
     background: #101010;
-    height: 46rem;
+    /*height: 46rem;*/
     overflow: hidden;
 }
 .unpacking__video iframe,
