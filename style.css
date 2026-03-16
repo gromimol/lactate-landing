@@ -636,12 +636,9 @@ table {
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 4px 2rem;
-    background: var(--green);
-    height: 4.4rem;
     font-size: 1.6rem;
     font-weight: 700;
-    color: #000;
+    color: var(--green);
     border-radius: 100px;
     cursor: default;
     position: relative;
