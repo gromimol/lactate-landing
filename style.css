@@ -418,13 +418,15 @@ table {
     min-width: 100%;
     min-height: 100%;
     object-fit: cover;
+}
+.hero__video--playing {
     animation: heroVideoLoop 30s linear infinite;
 }
 @keyframes heroVideoLoop {
-    0%      { opacity: 0; } /* t=0s:  poster виден */
-    10%   { opacity: 1; } /* t=2s:  видео появилось */
-    80%  { opacity: 1; } /* t=26s: начинаем гасить */
-    100%    { opacity: 0; } /* t=30s: loop скрыт     */
+    0%      { opacity: 0; }
+    10%     { opacity: 1; }
+    80%     { opacity: 1; }
+    100%    { opacity: 0; }
 }
 
 /*about*/

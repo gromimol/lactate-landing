@@ -75,6 +75,17 @@ if (langSwitcher) {
 
 
 // =========================================
+// Hero video — запуск анимации с момента начала воспроизведения
+// =========================================
+
+const heroVideo = document.getElementById('heroVideo');
+if (heroVideo) {
+  heroVideo.addEventListener('playing', function () {
+    heroVideo.classList.add('hero__video--playing');
+  }, { once: true });
+}
+
+// =========================================
 // Doc modals (footer links)
 // =========================================
 
