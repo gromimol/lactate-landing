@@ -405,7 +405,7 @@ export const LactateLanding: React.FC<LactateLandingProps> = ({ lang, onOrder, o
                                 <div className="h5">{t.devicePriceLabel}</div>
                                 <div className="h2">{prices?.analyzerPrice || t.devicePrice}</div>
                                 <div className="main-price-block__row">
-                                    <a href={`https://lactate.store/${lang}/product/trainingendurance-sports-performance-analyzer`} className="btn">{t.btnOrder}</a>
+                                    <a href={`https://lactate.store/${lang}/product/trainingendurance-sports-performance-analyzer`} className="btn" target="_blank" rel="noopener noreferrer">{t.btnOrder}</a>
                                     <span className="delivery-notice">{t.deliveryNotice}</span>
                                 </div>
                             </div>
@@ -708,7 +708,7 @@ export const LactateLanding: React.FC<LactateLandingProps> = ({ lang, onOrder, o
                       <div className="price__grid__item__block">
                           <div className="h5">{t.price1Title}</div>
                           <div className="h2 main-price">{prices?.analyzerPrice || t.price1Value}</div>
-                          <a href={`https://lactate.store/${lang}/product/trainingendurance-sports-performance-analyzer`} className="btn">{t.btnOrderUpper}</a>
+                          <a href={`https://lactate.store/${lang}/product/trainingendurance-sports-performance-analyzer`} className="btn" target="_blank" rel="noopener noreferrer">{t.btnOrderUpper}</a>
                       </div>
                       <div className="price__grid__item__footer">
                           <ul className="price__grid__item__list">
@@ -724,7 +724,7 @@ export const LactateLanding: React.FC<LactateLandingProps> = ({ lang, onOrder, o
                       <div className="price__grid__item__block">
                           <div className="h5">{t.price2Title}</div>
                           <div className="h2 main-price" {...h(prices?.stripsPrice ? `${prices.stripsPrice} / <span>${lang === 'ru' ? '25 шт' : '25 pcs'}</span>` : t.price2Value)} />
-                          <a href={`https://lactate.store/${lang}/product/trainingendurance-sports-performance-analyzer`} className="btn">{t.btnOrderUpper}</a>
+                          <a href={`https://lactate.store/${lang}/product/test-strips-for-trainingendurance-sports-performance-analyzer`} className="btn" target="_blank" rel="noopener noreferrer">{t.btnOrderUpper}</a>
                       </div>
                       <div className="price__grid__item__footer">
                           <div className="price__grid__item__block__notice">{t.price2Notice}</div>
