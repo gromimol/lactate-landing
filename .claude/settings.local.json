@@ -9,7 +9,8 @@
       "Bash(npx vite:*)",
       "Bash(npx vercel:*)",
       "Bash(npx tsc:*)",
-      "Bash(cd:*)"
+      "Bash(cd:*)",
+      "Bash(python3 -m json.tool)"
     ]
   }
 }
