@@ -4,18 +4,18 @@
 
 @font-face {
     font-family: 'SF Pro Display';
-    src: url('/lactate/fonts/SF-Pro-Display-Medium.woff2') format('woff2');
+    src: url('./fonts/SF-Pro-Display-Medium.woff2') format('woff2');
     font-weight: 500;
     font-style: normal;
-    font-display: swap;
+    font-display: block;
 }
 
 @font-face {
     font-family: 'SF Pro Display';
-    src: url('/lactate/fonts/SF-Pro-Display-Bold.woff2') format('woff2');
+    src: url('./fonts/SF-Pro-Display-Bold.woff2') format('woff2');
     font-weight: 700;
     font-style: normal;
-    font-display: swap;
+    font-display: block;
 }
 
 /* =========================================
@@ -267,6 +267,9 @@ table {
 .lang-switcher--open .lang-switcher__chevron {
     transform: rotate(180deg);
 }
+.lang-switcher--open {
+    z-index: 101;
+}
 .lang-switcher__dropdown {
     display: none;
     position: absolute;
@@ -286,7 +289,7 @@ table {
     align-items: center;
     gap: 0.8rem;
     width: 100%;
-    padding: 10px;
+    padding: 12px 16px;
     cursor: pointer;
     color: var(--white);
     font-size: 12px;
@@ -450,7 +453,7 @@ table {
         top: -32rem;
         left: 0;
         background: linear-gradient(to top, #050000 0%, transparent 20rem),
-                    url('/lactate/images/mountain.webp') center 0 no-repeat;
+                    url('./images/mountain.webp') center 0 no-repeat;
         background-size: cover;
         mix-blend-mode: hard-light;
     }
@@ -556,7 +559,7 @@ table {
         top: -30%;
         left: 0;
         background: linear-gradient(to top, #050000 0%, transparent 20rem),
-                    url('/lactate/images/feautres_bg.webp') 0 center no-repeat;
+                    url('./images/feautres_bg.webp') 0 center no-repeat;
         background-size: cover;
         pointer-events: none;
     }
@@ -691,7 +694,7 @@ table {
 /*zones*/
 .zones {
     padding: 16.5rem 0 19rem;
-    background: url('/lactate/images/zone_bg.webp') 0 center no-repeat;
+    background: url('./images/zone_bg.webp') 0 center no-repeat;
     background-size: cover;
 }
 .zones__grid {
@@ -772,7 +775,7 @@ table {
 .why-lactate {
     background:
             linear-gradient(to top, #000 0%, transparent 15rem),
-            url('/lactate/images/lactate_bg.webp') 0 0 no-repeat;
+            url('./images/lactate_bg.webp') 0 0 no-repeat;
     background-size: cover;
     padding-bottom: 22.2rem;
     position: relative;
@@ -882,7 +885,7 @@ table {
 /*price*/
 .price {
     padding: 4rem 0 100px;
-    background: url('/lactate/images/price_bg.webp') 0 50% no-repeat;
+    background: url('./images/price_bg.webp') 0 50% no-repeat;
     background-size: cover;
 }
 .price .block-title {
@@ -1394,7 +1397,7 @@ a {
         margin-top: 40px;
     }
     .first-screen {
-        background: url('/lactate/images/top_bg_part2_mobile.webp') center 152% no-repeat,  url('/lactate/images/top_bg_mobile.webp') center 10% no-repeat;
+        background: url('./images/top_bg_part2_mobile.webp') center 152% no-repeat,  url('./images/top_bg_mobile.webp') center 10% no-repeat;
         background-size: cover, contain;
         position: relative;
         padding-bottom: 50px;
@@ -1403,7 +1406,7 @@ a {
         content: '';
         width: 100%;
         height: 100%;
-        background: url('/lactate/images/mountain_mobile.webp') center 50% no-repeat;
+        background: url('./images/mountain_mobile.webp') center 50% no-repeat;
         background-size: contain;
         position: absolute;
         bottom: 0;
@@ -1432,7 +1435,7 @@ a {
         margin-bottom: 20px;
     }
     .features::after {
-        background: url('/lactate/images/features_bg_mobile.webp') center 0 no-repeat;
+        background: url('./images/features_bg_mobile.webp') center 0 no-repeat;
         background-size: contain;
         top: -45%;
     }
@@ -1478,7 +1481,7 @@ a {
         gap: 20px
     }
     .features__grid {
-        background: url('/lactate/images/features_bg_mobile.webp') center -40% no-repeat;
+        background: url('./images/features_bg_mobile.webp') center -40% no-repeat;
         background-size: contain;
     }
     .features__grid__item--sm .features__grid__item__grid {
@@ -1587,11 +1590,11 @@ a {
         font-size: 22px;
     }
     .why-lactate {
-        background: url('/lactate/images/lactate_bg_mobile.webp') center 0 no-repeat;
+        background: url('./images/lactate_bg_mobile.webp') center 0 no-repeat;
         background-size: cover;
     }
     .price {
-        background: url('/lactate/images/price_bg_mobile.webp') center 0 no-repeat;
+        background: url('./images/price_bg_mobile.webp') center 0 no-repeat;
         background-size: cover;
     }
     .price__grid__item {
@@ -1675,7 +1678,7 @@ a {
 }
 @media(width < 410px) {
     .why-lactate {
-        background: url('/lactate/images/lactate_bg_mobile.webp') center 100% no-repeat;
+        background: url('./images/lactate_bg_mobile.webp') center 100% no-repeat;
         background-size: contain;
     }
 }

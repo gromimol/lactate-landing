@@ -4,6 +4,18 @@ import { posts } from './posts';
 import { usePrices } from './use-prices';
 import './lactate-landing.css';
 
+import logoSvg from './images/logo.svg';
+import telegramSvg from './images/telegram.svg';
+import posterWebp from './images/poster.webp';
+import bgVideo from './images/background_lactate_pingpong.mp4';
+import chipWebp from './images/chip.webp';
+import chipMobileWebp from './images/chip_mobile.webp';
+import stripsWebp from './images/strips.webp';
+import notebookWebp from './images/notebook.webp';
+import notebookMobileWebp from './images/notebook_mobile.webp';
+
+const img = (name: string) => new URL(`./images/${name}`, import.meta.url).href;
+
 interface LactateLandingProps {
   lang: Lang;
   onOrder?: () => void;
@@ -11,8 +23,6 @@ interface LactateLandingProps {
   faqHref?: string;
   onFaqClick?: () => void;
 }
-
-const A = '/lactate'; // assets base path
 
 export const LactateLanding: React.FC<LactateLandingProps> = ({ lang, onOrder, onLanguageChange, faqHref, onFaqClick }) => {
   const t = translations[lang];
@@ -293,7 +303,7 @@ export const LactateLanding: React.FC<LactateLandingProps> = ({ lang, onOrder, o
   <header className="header">
     <div className="container">
         <div className="header__left">
-            <div className="logo"><img src={`${A}/images/logo.svg`} alt="" /></div>
+            <div className="logo"><img src={logoSvg} alt="" /></div>
             <ul className="menu">
                 <li><a href="#posts">{t.menuArticles}</a></li>
                 <li><a href="#video">{t.menuVideo}</a></li>
@@ -327,7 +337,7 @@ export const LactateLanding: React.FC<LactateLandingProps> = ({ lang, onOrder, o
             <ul className="social">
                 <li>
                     <a href="https://t.me/TrainingEnduranceBot" target="_blank" rel="noopener noreferrer">
-                    <img src={`${A}/images/telegram.svg`} alt="Telegram" loading="lazy" />
+                    <img src={telegramSvg} alt="Telegram" loading="lazy" />
                     </a>
                 </li>
             </ul>
@@ -377,7 +387,7 @@ export const LactateLanding: React.FC<LactateLandingProps> = ({ lang, onOrder, o
                     </div>
                     <div className="first-screen__img">
                         <picture>
-                            <img src={`${A}/images/analizator_desctop_${lang}.webp`} alt={t.heroTitle} fetchPriority="high" />
+                            <img src={img(`analizator_desctop_${lang}.webp`)} alt={t.heroTitle} fetchPriority="high" />
                         </picture>
                         <div className="first-screen__message">{t.heroNotMedical}</div>
                     </div>
@@ -438,8 +448,8 @@ export const LactateLanding: React.FC<LactateLandingProps> = ({ lang, onOrder, o
             </div>
 
           <div className="first-screen__bg">
-              <video className="hero__video" autoPlay muted playsInline loop poster={`${A}/images/poster.webp`}>
-                <source src={`${A}/images/background_lactate_pingpong.mp4`} type="video/mp4" />
+              <video className="hero__video" autoPlay muted playsInline loop poster={posterWebp}>
+                <source src={bgVideo} type="video/mp4" />
               </video>
           </div>
         </div>
@@ -506,8 +516,8 @@ export const LactateLanding: React.FC<LactateLandingProps> = ({ lang, onOrder, o
                       <div className="features__grid__item__img">
                           <div className="features__grid__item__img">
                               <picture>
-                                  <source media="(max-width: 810px)" srcSet={`${A}/images/chip_mobile.webp`} />
-                                  <img src={`${A}/images/chip.webp`} alt="" loading="lazy" />
+                                  <source media="(max-width: 810px)" srcSet={chipMobileWebp} />
+                                  <img src={chipWebp} alt="" loading="lazy" />
                               </picture>
                           </div>
                       </div>
@@ -521,7 +531,7 @@ export const LactateLanding: React.FC<LactateLandingProps> = ({ lang, onOrder, o
                   <div className="features__grid__item features__grid__item--sm">
                       <div className="h3" {...h(t.feature2Title)} />
                       <div className="features__grid__item__img">
-                          <img src={`${A}/images/strips.webp`} alt="" loading="lazy" />
+                          <img src={stripsWebp} alt="" loading="lazy" />
                       </div>
                       <div className="features__grid__item__grid animate-fade-up">
                           <p {...h(t.feature2Text)} />
@@ -538,7 +548,7 @@ export const LactateLanding: React.FC<LactateLandingProps> = ({ lang, onOrder, o
                   <div className="interface__description animate-fade-up">
                       <div className="h4">{t.interfaceTitle}</div>
                       <div className="interface__img show-mobile">
-                          <img src={`${A}/images/notebook_mobile.webp`} alt="" loading="lazy" />
+                          <img src={notebookMobileWebp} alt="" loading="lazy" />
                       </div>
                       <div className="interface__description__block">
                           <p {...h(t.interfaceText1)} />
@@ -547,7 +557,7 @@ export const LactateLanding: React.FC<LactateLandingProps> = ({ lang, onOrder, o
                       </div>
                   </div>
                   <div className="interface__img hide-mobile">
-                      <img src={`${A}/images/notebook.webp`} alt="" loading="lazy" />
+                      <img src={notebookWebp} alt="" loading="lazy" />
                   </div>
               </div>
           </div>
@@ -569,7 +579,7 @@ export const LactateLanding: React.FC<LactateLandingProps> = ({ lang, onOrder, o
                       </div>
                   </div>
                   <div className="zones__img">
-                      <img src={`${A}/images/zones_${lang}.webp`} alt="" loading="lazy" />
+                      <img src={img(`zones_${lang}.webp`)} alt="" loading="lazy" />
                   </div>
               </div>
           </div>
@@ -609,7 +619,7 @@ export const LactateLanding: React.FC<LactateLandingProps> = ({ lang, onOrder, o
               </div>
               <div className="why-lactate__about">
                   <div className="why-lactate__about__img">
-                      <img src={`${A}/images/product_group_${lang}.webp`} alt="" loading="lazy" />
+                      <img src={img(`product_group_${lang}.webp`)} alt="" loading="lazy" />
                   </div>
                   <div className="why-lactate__about__description">
                       <div className="about__description__item animate-fade-up">
@@ -724,7 +734,7 @@ export const LactateLanding: React.FC<LactateLandingProps> = ({ lang, onOrder, o
               <div className="container">
                   <div className="footer__grid">
                       <div className="footer__grid__item logo">
-                          <a href="#"><img src={`${A}/images/logo.svg`} alt="Training Endurance" loading="lazy" /></a>
+                          <a href="#"><img src={logoSvg} alt="Training Endurance" loading="lazy" /></a>
                       </div>
                       <div className="footer__grid__item">
                           <div className="h5">{t.footerInfoTitle}</div>
@@ -751,7 +761,7 @@ export const LactateLanding: React.FC<LactateLandingProps> = ({ lang, onOrder, o
                           <ul className="social">
                               <li>
                                   <a href="https://t.me/TrainingEnduranceBot" target="_blank" rel="noopener noreferrer">
-                                  <img src={`${A}/images/telegram.svg`} alt="Telegram" loading="lazy" />
+                                  <img src={telegramSvg} alt="Telegram" loading="lazy" />
                                   </a>
                               </li>
                           </ul>

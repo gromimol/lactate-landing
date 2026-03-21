@@ -3,7 +3,8 @@ import { faqUI, faqData } from './faq-data';
 import type { Lang } from './translations';
 import { translations } from './translations';
 
-const A = '/lactate';
+import logoSvg from './images/logo.svg';
+import telegramSvg from './images/telegram.svg';
 
 interface FaqPageProps {
   lang: Lang;
@@ -92,7 +93,7 @@ export const FaqPage: React.FC<FaqPageProps> = ({ lang, onBack, onLanguageChange
     <header className="header">
       <div className="container">
         <div className="header__left">
-          <div className="logo"><a href="#" onClick={e => { e.preventDefault(); onBack(); }}><img src={`${A}/images/logo.svg`} alt="" /></a></div>
+          <div className="logo"><a href="#" onClick={e => { e.preventDefault(); onBack(); }}><img src={logoSvg} alt="" /></a></div>
           <ul className="menu">
             <li><a href="#" onClick={e => { e.preventDefault(); onBack(); }}>{t.menuArticles}</a></li>
             <li><a href="#" onClick={e => { e.preventDefault(); onBack(); }}>{t.menuVideo}</a></li>
@@ -122,7 +123,7 @@ export const FaqPage: React.FC<FaqPageProps> = ({ lang, onBack, onLanguageChange
           <ul className="social">
             <li>
               <a href="https://t.me/TrainingEnduranceBot" target="_blank" rel="noopener noreferrer">
-                <img src={`${A}/images/telegram.svg`} alt="Telegram" loading="lazy" />
+                <img src={telegramSvg} alt="Telegram" loading="lazy" />
               </a>
             </li>
           </ul>
@@ -178,7 +179,7 @@ export const FaqPage: React.FC<FaqPageProps> = ({ lang, onBack, onLanguageChange
         <div className="container">
           <div className="footer__grid">
             <div className="footer__grid__item logo">
-              <a href="#" onClick={e => { e.preventDefault(); onBack(); }}><img src={`${A}/images/logo.svg`} alt="Training Endurance" loading="lazy" /></a>
+              <a href="#" onClick={e => { e.preventDefault(); onBack(); }}><img src={logoSvg} alt="Training Endurance" loading="lazy" /></a>
             </div>
             <div className="footer__grid__item">
               <div className="h5">{t.footerInfoTitle}</div>
@@ -203,7 +204,7 @@ export const FaqPage: React.FC<FaqPageProps> = ({ lang, onBack, onLanguageChange
               <ul className="social">
                 <li>
                   <a href="https://t.me/TrainingEnduranceBot" target="_blank" rel="noopener noreferrer">
-                    <img src={`${A}/images/telegram.svg`} alt="Telegram" loading="lazy" />
+                    <img src={telegramSvg} alt="Telegram" loading="lazy" />
                   </a>
                 </li>
               </ul>
@@ -291,7 +292,7 @@ export const FaqPage: React.FC<FaqPageProps> = ({ lang, onBack, onLanguageChange
         <div className="container">
           <div className="footer__grid">
             <div className="footer__grid__item logo">
-              <a href="#" onClick={e => { e.preventDefault(); onBack(); }}><img src={`${A}/images/logo.svg`} alt="Training Endurance" loading="lazy" /></a>
+              <a href="#" onClick={e => { e.preventDefault(); onBack(); }}><img src={logoSvg} alt="Training Endurance" loading="lazy" /></a>
             </div>
             <div className="footer__grid__item">
               <div className="h5">{t.footerInfoTitle}</div>
@@ -316,7 +317,7 @@ export const FaqPage: React.FC<FaqPageProps> = ({ lang, onBack, onLanguageChange
               <ul className="social">
                 <li>
                   <a href="https://t.me/TrainingEnduranceBot" target="_blank" rel="noopener noreferrer">
-                    <img src={`${A}/images/telegram.svg`} alt="Telegram" loading="lazy" />
+                    <img src={telegramSvg} alt="Telegram" loading="lazy" />
                   </a>
                 </li>
               </ul>
