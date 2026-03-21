@@ -31,22 +31,212 @@ export const LactateLanding: React.FC<LactateLandingProps> = ({ lang, onOrder, o
     return () => document.removeEventListener('click', close);
   }, []);
 
-  // Animate .animate-fade-up elements (replaces Motion.js inView)
+  // Animations (port of Motion.js from original)
   useEffect(() => {
-    const els = document.querySelectorAll('.lactate-landing .animate-fade-up');
-    const obs = new IntersectionObserver((entries) => {
+    const cleanups: (() => void)[] = [];
+    const isDesktop = window.matchMedia('(min-width: 1200px)').matches;
+
+    // Helper: scroll-linked animation (maps scroll progress to style values)
+    const scrollAnim = (
+      targetSel: string,
+      animSel: string,
+      props: Record<string, [number, number]>,
+      offset: [string, string] = ['start end', 'end start']
+    ) => {
+      const target = document.querySelector(targetSel) as HTMLElement | null;
+      const els = document.querySelectorAll(animSel) as NodeListOf<HTMLElement>;
+      if (!target || !els.length) return;
+
+      const handler = () => {
+        const rect = target.getBoundingClientRect();
+        const vh = window.innerHeight;
+
+        // Parse offsets
+        const parseOffset = (o: string, rect: DOMRect) => {
+          const [elPart, vpPart] = o.split(' ');
+          let elPos = rect.top;
+          if (elPart === 'end') elPos = rect.bottom;
+          else if (elPart === 'center') elPos = rect.top + rect.height / 2;
+          let vpPos = 0;
+          if (vpPart === 'end') vpPos = vh;
+          else if (vpPart === 'start') vpPos = 0;
+          else if (vpPart === 'center') vpPos = vh / 2;
+          else if (parseFloat(vpPart)) vpPos = vh * parseFloat(vpPart);
+          return elPos - vpPos;
+        };
+
+        const startDist = parseOffset(offset[0], rect);
+        const endDist = parseOffset(offset[1], rect);
+        const totalRange = startDist - endDist;
+        if (totalRange === 0) return;
+        const progress = Math.min(1, Math.max(0, startDist / totalRange));
+
+        els.forEach(el => {
+          const transforms: string[] = [];
+          Object.entries(props).forEach(([prop, [from, to]]) => {
+            const val = from + (to - from) * progress;
+            if (prop === 'y') transforms.push(`translateY(${val}px)`);
+            else if (prop === 'x') transforms.push(`translateX(${val}px)`);
+            else if (prop === 'opacity') el.style.opacity = String(val);
+            else if (prop === 'filter') el.style.filter = `blur(${val}px)`;
+          });
+          if (transforms.length) el.style.transform = transforms.join(' ');
+        });
+      };
+
+      window.addEventListener('scroll', handler, { passive: true });
+      handler();
+      cleanups.push(() => window.removeEventListener('scroll', handler));
+    };
+
+    // Helper: inView fade-up (one-shot)
+    const fadeUp = (selector: string, options: { delay?: number; stagger?: number } = {}) => {
+      const els = document.querySelectorAll(selector) as NodeListOf<HTMLElement>;
+      const obs = new IntersectionObserver((entries) => {
+        entries.forEach(e => {
+          if (e.isIntersecting) {
+            const el = e.target as HTMLElement;
+            const idx = Array.from(els).indexOf(el);
+            const delay = (options.delay ?? 0) + (options.stagger ?? 0) * idx;
+            el.style.transition = `opacity 0.6s ease-out ${delay}s, transform 0.6s ease-out ${delay}s`;
+            el.style.opacity = '1';
+            el.style.transform = 'translateY(0)';
+            obs.unobserve(el);
+          }
+        });
+      }, { rootMargin: '0px 0px -80px 0px' });
+      els.forEach(el => { el.style.opacity = '0'; el.style.transform = 'translateY(30px)'; obs.observe(el); });
+      cleanups.push(() => obs.disconnect());
+    };
+
+    if (isDesktop) {
+      // Features parallax
+      scrollAnim('.features', '.features__grid__item--lg', { y: [-40, 40] });
+      scrollAnim('.features', '.features__grid__item--sm', { y: [40, -40] });
+
+      // Badge parallax
+      scrollAnim('.interface', '.badge', { y: [60, -60] });
+
+      // About options parallax + blur
+      document.querySelectorAll('.about-options-grid__item').forEach((item, i) => {
+        scrollAnim('.about-options-grid', `.about-options-grid__item:nth-child(${i + 1})`,
+          { y: [40 + i * 25, 0], filter: [2, 0], opacity: [0.6, 1] },
+          ['start end', 'end 0.85']
+        );
+      });
+
+      // About options hover class (when animation reaches end)
+      const optionItems = document.querySelectorAll('.about-options-grid__item') as NodeListOf<HTMLElement>;
+      const optionHandler = () => {
+        optionItems.forEach(item => {
+          const style = item.getAttribute('style') || '';
+          if (style.includes('translateY(0px)')) {
+            item.classList.add('about-options-grid__item--animation-end');
+          } else {
+            item.classList.remove('about-options-grid__item--animation-end');
+          }
+        });
+      };
+      window.addEventListener('scroll', optionHandler, { passive: true });
+      cleanups.push(() => window.removeEventListener('scroll', optionHandler));
+
+      // Price parallax
+      scrollAnim('.price', '.price__grid__item:first-child', { x: [-60, 0], opacity: [0.3, 1] }, ['start end', 'center 0.8']);
+      scrollAnim('.price', '.price__grid__item:last-child', { x: [60, 0], opacity: [0.3, 1] }, ['start end', 'center 0.8']);
+
+      // Why-lactate img parallax
+      scrollAnim('.why-lactate__about', '.why-lactate__about__img', { x: [-80, 0] }, ['start end', 'end center']);
+
+      // First screen parallax
+      scrollAnim('.first-screen', '.first-screen__img, .first-screen__prices__content', { y: [0, 100] }, ['start start', 'end start']);
+
+    } else {
+      // Mobile — simple fade-ups
+      fadeUp('.about-options-grid__item', { stagger: 0.1 });
+      fadeUp('.features__grid__item--lg');
+      fadeUp('.features__grid__item--sm', { delay: 0.1 });
+      fadeUp('.price__grid__item:first-child');
+      fadeUp('.price__grid__item:last-child', { delay: 0.15 });
+      fadeUp('.why-lactate__about__img');
+    }
+
+    // animate-fade-up (all screens, with reverse on leave)
+    const fadeEls = document.querySelectorAll('.lactate-landing .animate-fade-up');
+    const fadeObs = new IntersectionObserver((entries) => {
       entries.forEach(e => {
+        const el = e.target as HTMLElement;
         if (e.isIntersecting) {
-          const el = e.target as HTMLElement;
           el.style.opacity = '1';
           el.style.transform = 'translateY(0)';
           el.style.transition = 'opacity 1.5s cubic-bezier(0.16, 1, 0.3, 1), transform 1.5s cubic-bezier(0.16, 1, 0.3, 1)';
-          obs.unobserve(el);
+        } else {
+          el.style.opacity = '0';
+          el.style.transform = 'translateY(20px)';
+          el.style.transition = 'opacity 1s ease-in, transform 1s ease-in';
         }
       });
     }, { rootMargin: '0px 0px -20% 0px' });
-    els.forEach(el => obs.observe(el));
-    return () => obs.disconnect();
+    fadeEls.forEach(el => fadeObs.observe(el));
+    cleanups.push(() => fadeObs.disconnect());
+
+    // Interface body fade-up (all screens)
+    const ifaceObs = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          const el = e.target as HTMLElement;
+          el.style.transition = 'opacity 0.7s ease-out, transform 0.7s ease-out';
+          el.style.opacity = '1';
+          el.style.transform = 'translateY(0)';
+          ifaceObs.unobserve(el);
+        }
+      });
+    }, { rootMargin: '0px 0px -100px 0px' });
+    document.querySelectorAll('.interface__body').forEach(el => {
+      (el as HTMLElement).style.opacity = '0';
+      (el as HTMLElement).style.transform = 'translateY(50px)';
+      ifaceObs.observe(el);
+    });
+    cleanups.push(() => ifaceObs.disconnect());
+
+    // Counter animation
+    const counterObs = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (!e.isIntersecting) return;
+        counterObs.unobserve(e.target);
+        e.target.querySelectorAll('.description__item__footer .h4').forEach(el => {
+          const original = el.textContent || '';
+          const parts = original.split(/([\d.]+)/);
+          el.innerHTML = parts.map(part =>
+            /^[\d.]+$/.test(part)
+              ? `<span class="counter" data-target="${part}">0.0</span>`
+              : part
+          ).join('');
+
+          el.querySelectorAll('.counter').forEach(span => {
+            const target = parseFloat((span as HTMLElement).dataset.target || '0');
+            const decimals = ((span as HTMLElement).dataset.target?.split('.')[1] || '').length;
+            const duration = 1500;
+            const delay = 800;
+            const startTime = performance.now() + delay;
+
+            const tick = (now: number) => {
+              const elapsed = now - startTime;
+              if (elapsed < 0) { requestAnimationFrame(tick); return; }
+              const progress = Math.min(1, elapsed / duration);
+              // cubic-bezier(0.16, 1, 0.3, 1) approximation
+              const eased = 1 - Math.pow(1 - progress, 3);
+              span.textContent = (target * eased).toFixed(decimals);
+              if (progress < 1) requestAnimationFrame(tick);
+            };
+            requestAnimationFrame(tick);
+          });
+        });
+      });
+    }, { rootMargin: '0px 0px -80px 0px' });
+    document.querySelectorAll('.why-lactate__description').forEach(el => counterObs.observe(el));
+    cleanups.push(() => counterObs.disconnect());
+
+    return () => cleanups.forEach(fn => fn());
   }, []);
 
   // Modal
@@ -224,11 +414,11 @@ export const LactateLanding: React.FC<LactateLandingProps> = ({ lang, onOrder, o
                 </div>
             </div>
 
-          <div className="first-screen__bg">
+          {/* <div className="first-screen__bg">
               <video className="hero__video" autoPlay muted playsInline loop poster={`${A}/images/poster.webp`}>
                 <source src={`${A}/images/background_lactate_pingpong.mp4`} type="video/mp4" />
               </video>
-          </div>
+          </div> */}
         </div>
 
       {/* ===== ABOUT ===== */}
