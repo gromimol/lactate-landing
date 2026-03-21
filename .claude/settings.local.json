@@ -7,7 +7,9 @@
       "Bash(rm /tmp/video_frames/frame_*.png)",
       "Bash(ffmpeg -i \"/Users/asmi/Code/TE lactate landing/public/lactate/images/background_lactate_pingpong.mp4\" -vf \"scale=1280:720,fps=10\" /tmp/video_frames/frame_%04d.png -y)",
       "Bash(npx vite:*)",
-      "Bash(npx vercel:*)"
+      "Bash(npx vercel:*)",
+      "Bash(npx tsc:*)",
+      "Bash(cd:*)"
     ]
   }
 }

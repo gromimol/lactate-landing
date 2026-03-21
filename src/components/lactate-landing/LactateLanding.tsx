@@ -8,11 +8,12 @@ interface LactateLandingProps {
   onOrder?: () => void;
   onLanguageChange?: (lang: Lang) => void;
   faqHref?: string;
+  onFaqClick?: () => void;
 }
 
 const A = '/lactate'; // assets base path
 
-export const LactateLanding: React.FC<LactateLandingProps> = ({ lang, onOrder, onLanguageChange, faqHref }) => {
+export const LactateLanding: React.FC<LactateLandingProps> = ({ lang, onOrder, onLanguageChange, faqHref, onFaqClick }) => {
   const t = translations[lang];
   const [modalPostId, setModalPostId] = useState<string | null>(null);
   const [langOpen, setLangOpen] = useState(false);
@@ -297,8 +298,8 @@ export const LactateLanding: React.FC<LactateLandingProps> = ({ lang, onOrder, o
             </ul>
         </div>
         <div className="header__right">
-            {faqHref && (
-            <a href={faqHref} className="btn-info">
+            {(faqHref || onFaqClick) && (
+            <a href={faqHref || '#'} className="btn-info" onClick={onFaqClick ? (e: React.MouseEvent) => { e.preventDefault(); onFaqClick(); } : undefined}>
                 <span className="btn-info__icon">
                     <svg><use href="#icon-info" /></svg>
                 </span>
@@ -323,7 +324,7 @@ export const LactateLanding: React.FC<LactateLandingProps> = ({ lang, onOrder, o
             </div>
             <ul className="social">
                 <li>
-                    <a href="https://t.me/TrainingEnduranceBot">
+                    <a href="https://t.me/TrainingEnduranceBot" target="_blank" rel="noopener noreferrer">
                     <img src={`${A}/images/telegram.svg`} alt="Telegram" loading="lazy" />
                     </a>
                 </li>
@@ -389,7 +390,7 @@ export const LactateLanding: React.FC<LactateLandingProps> = ({ lang, onOrder, o
                                 <div className="h5">{t.devicePriceLabel}</div>
                                 <div className="h2">{t.devicePrice}</div>
                                 <div className="main-price-block__row">
-                                    <a href="#" className="btn" onClick={e => { e.preventDefault(); onOrder?.(); }}>{t.btnOrder}</a>
+                                    <a href={`https://lactate.store/${lang}/product/trainingendurance-sports-performance-analyzer`} className="btn">{t.btnOrder}</a>
                                     <span className="delivery-notice">{t.deliveryNotice}</span>
                                 </div>
                             </div>
@@ -435,7 +436,9 @@ export const LactateLanding: React.FC<LactateLandingProps> = ({ lang, onOrder, o
             </div>
 
           <div className="first-screen__bg">
-              <img className="hero__video" src={`${A}/images/background_lactate.webp`} alt="" />
+              <video className="hero__video" autoPlay muted playsInline loop poster={`${A}/images/poster.webp`}>
+                <source src={`${A}/images/background_lactate_pingpong.mp4`} type="video/mp4" />
+              </video>
           </div>
         </div>
 
@@ -690,7 +693,7 @@ export const LactateLanding: React.FC<LactateLandingProps> = ({ lang, onOrder, o
                       <div className="price__grid__item__block">
                           <div className="h5">{t.price1Title}</div>
                           <div className="h2 main-price">{t.price1Value}</div>
-                          <a href="#" className="btn" onClick={e => { e.preventDefault(); onOrder?.(); }}>{t.btnOrderUpper}</a>
+                          <a href={`https://lactate.store/${lang}/product/trainingendurance-sports-performance-analyzer`} className="btn">{t.btnOrderUpper}</a>
                       </div>
                       <div className="price__grid__item__footer">
                           <ul className="price__grid__item__list">
@@ -706,7 +709,7 @@ export const LactateLanding: React.FC<LactateLandingProps> = ({ lang, onOrder, o
                       <div className="price__grid__item__block">
                           <div className="h5">{t.price2Title}</div>
                           <div className="h2 main-price" {...h(t.price2Value)} />
-                          <a href="#" className="btn" onClick={e => { e.preventDefault(); onOrder?.(); }}>{t.btnOrderUpper}</a>
+                          <a href={`https://lactate.store/${lang}/product/trainingendurance-sports-performance-analyzer`} className="btn">{t.btnOrderUpper}</a>
                       </div>
                       <div className="price__grid__item__footer">
                           <div className="price__grid__item__block__notice">{t.price2Notice}</div>
@@ -737,15 +740,15 @@ export const LactateLanding: React.FC<LactateLandingProps> = ({ lang, onOrder, o
                           </ul>
                       </div>
                       <div className="footer__grid__item footer__grid__item--social">
-                          {faqHref && (
-                          <a href={faqHref} className="btn-info">
+                          {(faqHref || onFaqClick) && (
+                          <a href={faqHref || '#'} className="btn-info" onClick={onFaqClick ? (e: React.MouseEvent) => { e.preventDefault(); onFaqClick(); } : undefined}>
                             <span className="btn-info__icon"><svg><use href="#icon-info" /></svg></span>
                               <span>{t.faqLabel}</span>
                           </a>
                           )}
                           <ul className="social">
                               <li>
-                                  <a href="https://t.me/TrainingEnduranceBot">
+                                  <a href="https://t.me/TrainingEnduranceBot" target="_blank" rel="noopener noreferrer">
                                   <img src={`${A}/images/telegram.svg`} alt="Telegram" loading="lazy" />
                                   </a>
                               </li>
