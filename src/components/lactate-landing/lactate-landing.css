@@ -415,10 +415,11 @@ table {
     position: absolute;
     top: 44%;
     left: 50%;
-    transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%) translateZ(0);
     min-width: 100%;
     min-height: 100%;
     object-fit: cover;
+    will-change: transform;
 }
 .hero__video--playing {
     animation: heroVideoLoop 30s linear infinite;

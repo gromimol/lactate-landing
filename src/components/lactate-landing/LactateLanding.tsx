@@ -31,12 +31,20 @@ export const LactateLanding: React.FC<LactateLandingProps> = ({ lang, onOrder, o
     return () => document.removeEventListener('click', close);
   }, []);
 
+
   // Animations (port of Motion.js from original)
   useEffect(() => {
     const cleanups: (() => void)[] = [];
     const isDesktop = window.matchMedia('(min-width: 1200px)').matches;
 
-    // Helper: scroll-linked animation (maps scroll progress to style values)
+    // Batched scroll-linked animations (single rAF loop, no layout thrashing)
+    const scrollAnims: {
+      target: HTMLElement;
+      els: HTMLElement[];
+      props: Record<string, [number, number]>;
+      offset: [string, string];
+    }[] = [];
+
     const scrollAnim = (
       targetSel: string,
       animSel: string,
@@ -44,49 +52,9 @@ export const LactateLanding: React.FC<LactateLandingProps> = ({ lang, onOrder, o
       offset: [string, string] = ['start end', 'end start']
     ) => {
       const target = document.querySelector(targetSel) as HTMLElement | null;
-      const els = document.querySelectorAll(animSel) as NodeListOf<HTMLElement>;
+      const els = Array.from(document.querySelectorAll(animSel)) as HTMLElement[];
       if (!target || !els.length) return;
-
-      const handler = () => {
-        const rect = target.getBoundingClientRect();
-        const vh = window.innerHeight;
-
-        // Parse offsets
-        const parseOffset = (o: string, rect: DOMRect) => {
-          const [elPart, vpPart] = o.split(' ');
-          let elPos = rect.top;
-          if (elPart === 'end') elPos = rect.bottom;
-          else if (elPart === 'center') elPos = rect.top + rect.height / 2;
-          let vpPos = 0;
-          if (vpPart === 'end') vpPos = vh;
-          else if (vpPart === 'start') vpPos = 0;
-          else if (vpPart === 'center') vpPos = vh / 2;
-          else if (parseFloat(vpPart)) vpPos = vh * parseFloat(vpPart);
-          return elPos - vpPos;
-        };
-
-        const startDist = parseOffset(offset[0], rect);
-        const endDist = parseOffset(offset[1], rect);
-        const totalRange = startDist - endDist;
-        if (totalRange === 0) return;
-        const progress = Math.min(1, Math.max(0, startDist / totalRange));
-
-        els.forEach(el => {
-          const transforms: string[] = [];
-          Object.entries(props).forEach(([prop, [from, to]]) => {
-            const val = from + (to - from) * progress;
-            if (prop === 'y') transforms.push(`translateY(${val}px)`);
-            else if (prop === 'x') transforms.push(`translateX(${val}px)`);
-            else if (prop === 'opacity') el.style.opacity = String(val);
-            else if (prop === 'filter') el.style.filter = `blur(${val}px)`;
-          });
-          if (transforms.length) el.style.transform = transforms.join(' ');
-        });
-      };
-
-      window.addEventListener('scroll', handler, { passive: true });
-      handler();
-      cleanups.push(() => window.removeEventListener('scroll', handler));
+      scrollAnims.push({ target, els, props, offset });
     };
 
     // Helper: inView fade-up (one-shot)
@@ -125,21 +93,6 @@ export const LactateLanding: React.FC<LactateLandingProps> = ({ lang, onOrder, o
         );
       });
 
-      // About options hover class (when animation reaches end)
-      const optionItems = document.querySelectorAll('.about-options-grid__item') as NodeListOf<HTMLElement>;
-      const optionHandler = () => {
-        optionItems.forEach(item => {
-          const style = item.getAttribute('style') || '';
-          if (style.includes('translateY(0px)')) {
-            item.classList.add('about-options-grid__item--animation-end');
-          } else {
-            item.classList.remove('about-options-grid__item--animation-end');
-          }
-        });
-      };
-      window.addEventListener('scroll', optionHandler, { passive: true });
-      cleanups.push(() => window.removeEventListener('scroll', optionHandler));
-
       // Price parallax
       scrollAnim('.price', '.price__grid__item:first-child', { x: [-60, 0], opacity: [0.3, 1] }, ['start end', 'center 0.8']);
       scrollAnim('.price', '.price__grid__item:last-child', { x: [60, 0], opacity: [0.3, 1] }, ['start end', 'center 0.8']);
@@ -158,6 +111,73 @@ export const LactateLanding: React.FC<LactateLandingProps> = ({ lang, onOrder, o
       fadeUp('.price__grid__item:first-child');
       fadeUp('.price__grid__item:last-child', { delay: 0.15 });
       fadeUp('.why-lactate__about__img');
+    }
+
+    // Single batched scroll handler for all parallax animations
+    if (scrollAnims.length) {
+      const optionItems = document.querySelectorAll('.about-options-grid__item') as NodeListOf<HTMLElement>;
+      let rafId = 0;
+      const vh = window.innerHeight;
+
+      const parseOffset = (o: string, rect: DOMRect) => {
+        const [elPart, vpPart] = o.split(' ');
+        let elPos = rect.top;
+        if (elPart === 'end') elPos = rect.bottom;
+        else if (elPart === 'center') elPos = rect.top + rect.height / 2;
+        let vpPos = 0;
+        if (vpPart === 'end') vpPos = vh;
+        else if (vpPart === 'start') vpPos = 0;
+        else if (vpPart === 'center') vpPos = vh / 2;
+        else if (parseFloat(vpPart)) vpPos = vh * parseFloat(vpPart);
+        return elPos - vpPos;
+      };
+
+      const tick = () => {
+        // Batch all reads first
+        const rects = scrollAnims.map(a => a.target.getBoundingClientRect());
+
+        // Then batch all writes
+        scrollAnims.forEach((a, i) => {
+          const rect = rects[i];
+          const startDist = parseOffset(a.offset[0], rect);
+          const endDist = parseOffset(a.offset[1], rect);
+          const totalRange = startDist - endDist;
+          if (totalRange === 0) return;
+          const progress = Math.min(1, Math.max(0, startDist / totalRange));
+
+          a.els.forEach(el => {
+            const transforms: string[] = [];
+            Object.entries(a.props).forEach(([prop, [from, to]]) => {
+              const val = from + (to - from) * progress;
+              if (prop === 'y') transforms.push(`translateY(${val}px)`);
+              else if (prop === 'x') transforms.push(`translateX(${val}px)`);
+              else if (prop === 'opacity') el.style.opacity = String(val);
+              else if (prop === 'filter') el.style.filter = `blur(${val}px)`;
+            });
+            if (transforms.length) el.style.transform = transforms.join(' ');
+          });
+        });
+
+        // About options hover class
+        optionItems.forEach(item => {
+          const style = item.getAttribute('style') || '';
+          if (style.includes('translateY(0px)')) {
+            item.classList.add('about-options-grid__item--animation-end');
+          } else {
+            item.classList.remove('about-options-grid__item--animation-end');
+          }
+        });
+
+        rafId = 0;
+      };
+
+      const onScroll = () => { if (!rafId) rafId = requestAnimationFrame(tick); };
+      window.addEventListener('scroll', onScroll, { passive: true });
+      tick(); // initial
+      cleanups.push(() => {
+        window.removeEventListener('scroll', onScroll);
+        if (rafId) cancelAnimationFrame(rafId);
+      });
     }
 
     // animate-fade-up (all screens, with reverse on leave)
@@ -414,11 +434,9 @@ export const LactateLanding: React.FC<LactateLandingProps> = ({ lang, onOrder, o
                 </div>
             </div>
 
-          {/* <div className="first-screen__bg">
-              <video className="hero__video" autoPlay muted playsInline loop poster={`${A}/images/poster.webp`}>
-                <source src={`${A}/images/background_lactate_pingpong.mp4`} type="video/mp4" />
-              </video>
-          </div> */}
+          <div className="first-screen__bg">
+              <img className="hero__video" src={`${A}/images/background_lactate.webp`} alt="" />
+          </div>
         </div>
 
       {/* ===== ABOUT ===== */}
