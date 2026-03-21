@@ -184,9 +184,9 @@ export const FaqPage: React.FC<FaqPageProps> = ({ lang, onBack, onLanguageChange
             <div className="footer__grid__item">
               <div className="h5">{t.footerInfoTitle}</div>
               <ul className="footer__grid__list">
-                <li><button className="text-decoration doc-link">{t.footerLinkTerms}</button></li>
-                <li><button className="text-decoration doc-link">{t.footerLinkOffer}</button></li>
-                <li><button className="text-decoration doc-link">{t.footerLinkReturn}</button></li>
+                <li><a href={`https://lactate.store/${lang}/legal/terms`} className="text-decoration doc-link" target="_blank" rel="noopener noreferrer">{t.footerLinkTerms}</a></li>
+                <li><a href={`https://lactate.store/${lang}/legal/offer`} className="text-decoration doc-link" target="_blank" rel="noopener noreferrer">{t.footerLinkOffer}</a></li>
+                <li><a href={`https://lactate.store/${lang}/legal/returns`} className="text-decoration doc-link" target="_blank" rel="noopener noreferrer">{t.footerLinkReturn}</a></li>
               </ul>
             </div>
             <div className="footer__grid__item">
@@ -297,9 +297,9 @@ export const FaqPage: React.FC<FaqPageProps> = ({ lang, onBack, onLanguageChange
             <div className="footer__grid__item">
               <div className="h5">{t.footerInfoTitle}</div>
               <ul className="footer__grid__list">
-                <li><button className="text-decoration doc-link">{t.footerLinkTerms}</button></li>
-                <li><button className="text-decoration doc-link">{t.footerLinkOffer}</button></li>
-                <li><button className="text-decoration doc-link">{t.footerLinkReturn}</button></li>
+                <li><a href={`https://lactate.store/${lang}/legal/terms`} className="text-decoration doc-link" target="_blank" rel="noopener noreferrer">{t.footerLinkTerms}</a></li>
+                <li><a href={`https://lactate.store/${lang}/legal/offer`} className="text-decoration doc-link" target="_blank" rel="noopener noreferrer">{t.footerLinkOffer}</a></li>
+                <li><a href={`https://lactate.store/${lang}/legal/returns`} className="text-decoration doc-link" target="_blank" rel="noopener noreferrer">{t.footerLinkReturn}</a></li>
               </ul>
             </div>
             <div className="footer__grid__item">

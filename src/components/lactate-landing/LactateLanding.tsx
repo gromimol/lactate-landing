@@ -27,7 +27,10 @@ interface LactateLandingProps {
 export const LactateLanding: React.FC<LactateLandingProps> = ({ lang, onOrder, onLanguageChange, faqHref, onFaqClick }) => {
   const t = translations[lang];
   const prices = usePrices(lang);
-  const [modalPostId, setModalPostId] = useState<string | null>(null);
+  const [modalPostId, _setModalPostId] = useState<string | null>(null);
+  const mountedRef = useRef(false);
+  useEffect(() => { const t = setTimeout(() => { mountedRef.current = true; }, 500); return () => clearTimeout(t); }, []);
+  const setModalPostId = useCallback((id: string | null) => { if (id === null || mountedRef.current) _setModalPostId(id); }, []);
   const [langOpen, setLangOpen] = useState(false);
   const sliderRef = useRef<HTMLDivElement>(null);
 
@@ -739,9 +742,9 @@ export const LactateLanding: React.FC<LactateLandingProps> = ({ lang, onOrder, o
                       <div className="footer__grid__item">
                           <div className="h5">{t.footerInfoTitle}</div>
                           <ul className="footer__grid__list">
-                              <li><button className="text-decoration doc-link" onClick={() => setModalPostId('doc-terms')}>{t.footerLinkTerms}</button></li>
-                              <li><button className="text-decoration doc-link" onClick={() => setModalPostId('doc-offer')}>{t.footerLinkOffer}</button></li>
-                              <li><button className="text-decoration doc-link" onClick={() => setModalPostId('doc-returns')}>{t.footerLinkReturn}</button></li>
+                              <li><a href={`https://lactate.store/${lang}/legal/terms`} className="text-decoration doc-link" target="_blank" rel="noopener noreferrer">{t.footerLinkTerms}</a></li>
+                              <li><a href={`https://lactate.store/${lang}/legal/offer`} className="text-decoration doc-link" target="_blank" rel="noopener noreferrer">{t.footerLinkOffer}</a></li>
+                              <li><a href={`https://lactate.store/${lang}/legal/returns`} className="text-decoration doc-link" target="_blank" rel="noopener noreferrer">{t.footerLinkReturn}</a></li>
                           </ul>
                       </div>
                       <div className="footer__grid__item">
