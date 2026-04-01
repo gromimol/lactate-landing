@@ -2060,7 +2060,6 @@ a {
         gap: 40px;
     }
     .footer__grid__item--social {
-        align-items: flex-start;
         justify-content: flex-start;
     }
     .footer {
