@@ -5,6 +5,7 @@ import { usePrices } from './use-prices';
 import './lactate-landing.css';
 
 import logoSvg from './images/logo.svg';
+import teLogoSvg from './images/te_logo.svg';
 import telegramSvg from './images/telegram.svg';
 import posterWebp from './images/poster.webp';
 import bgVideo from './images/background_lactate_pingpong.mp4';
@@ -312,6 +313,21 @@ export const LactateLanding: React.FC<LactateLandingProps> = ({ lang, onOrder, o
                 <li><a href="#video">{t.menuVideo}</a></li>
             </ul>
         </div>
+        <div className="header__center">
+            <a href="https://trainingendurance.com" className="app-btn" target="_blank" rel="noopener noreferrer">
+                <span className="app-btn__left">
+                    <span className="app-btn__left__icon">
+                        <img src={teLogoSvg} alt="TE" />
+                    </span>
+                    <span className="app-btn__left__text">
+                        <span className="hide-mobile">{lang === 'ru' ? 'Приложение' : 'App'}</span> TE app
+                    </span>
+                </span>
+                <span className="app-btn__right">
+                    <span className="btn-info">{lang === 'ru' ? 'Подробнее' : 'Details'}</span>
+                </span>
+            </a>
+        </div>
         <div className="header__right">
             {(faqHref || onFaqClick) && (
             <a href={faqHref || '#'} className="btn-info" onClick={onFaqClick ? (e: React.MouseEvent) => { e.preventDefault(); onFaqClick(); } : undefined}>
@@ -395,23 +411,25 @@ export const LactateLanding: React.FC<LactateLandingProps> = ({ lang, onOrder, o
                         <div className="first-screen__message">{t.heroNotMedical}</div>
                     </div>
                     <div className="first-screen__prices">
-                        <div className="first-screen__prices__header hide-mobile">
-                            <p {...h(t.heroMeasured)} />
-                            <p {...h(t.heroNoBullshit)} />
-                        </div>
 
                         <div className="first-screen__prices__content">
                             <div className="main-price-block">
                                 <div className="h5">{t.devicePriceLabel}</div>
                                 <div className="h2">{prices?.analyzerPrice || t.devicePrice}</div>
+                                <div className="h5">{t.stripsPriceLabel}</div>
+                                <div className="h4">{prices?.stripsPrice || t.stripsPrice}</div>
                                 <div className="main-price-block__row">
                                     <a href={`https://lactate.store/${lang}/product/trainingendurance-sports-performance-analyzer`} className="btn" target="_blank" rel="noopener noreferrer">{t.btnOrder}</a>
-                                    <span className="delivery-notice">{t.deliveryNotice}</span>
                                 </div>
                             </div>
 
                             <div className="first-screen__prices__notice">
-                                <div className="h5">{t.proMonthLabel}</div>
+                                <div className="h5">
+                                    <div className="title">{t.proMonthLabel}</div>
+                                    <span className="first-screen__prices__notice__logo">
+                                        <img src={teLogoSvg} alt="Training Endurance" />
+                                    </span>
+                                </div>
                                 <p>{t.proMonthDesc}</p>
                             </div>
                         </div>

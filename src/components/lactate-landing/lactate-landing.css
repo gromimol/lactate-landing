@@ -203,6 +203,50 @@ table {
 .header__left {
     gap: 10rem;
 }
+.header__center {
+    margin: 0 1rem;
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+}
+.app-btn {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: rgba(33, 33, 33, .5);
+    border-radius: 24px;
+    padding: 10px;
+    width: 100%;
+    max-width: 420px;
+
+    &:hover {
+        background: rgba(33, 33, 33, .9);
+    }
+
+    & .btn-info {
+        background: #060101;
+        &:hover {
+            background: #060101;
+        }
+    }
+
+}
+.app-btn__left {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.app-btn__left__icon {
+    width: 40px;
+
+    & img {
+        width: 100%;
+        filter: drop-shadow(0 0 20px rgba(176, 4, 9, 0.95));
+    }
+}
+.app-btn__left__text {
+    font-weight: 700;
+}
 .menu {
     gap: 2.7rem;
     font-size: max(16px, 1.8rem);
@@ -371,6 +415,7 @@ table {
     display: flex;
     flex-direction: column;
     padding-top: 2rem;
+    align-items: flex-end;
 }
 .first-screen__prices__header {
     p:not(:last-child) {
@@ -378,30 +423,49 @@ table {
     }
 }
 .first-screen__prices__content {
-    margin-top: 5.1rem;
+    max-width: 308px;
 }
 .main-price-block {
-    padding: 3rem 1.8rem 3rem 3rem;
+    padding: 3rem;
     background: var(--dark-background);
     border-radius: var(--radius);
 }
 .main-price-block .h5 {
-    margin-bottom: 2rem;
+    margin-bottom: 1rem;
 }
 .main-price-block .h2 {
     margin-bottom: 2.4rem;
 }
 .first-screen__prices__notice {
-    padding: 2.3rem 3rem 2rem;
+    padding: 2.3rem 1.5rem 2rem 3rem;
     background: var(--dark-background);
     border-radius: var(--radius);
-    margin-top: 12px;
+    margin-top: 20px;
 }
-.main-price-block__row {
+.first-screen__prices__notice .h5 {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: 15px;
+    font-size: max(16px, 1.8rem);
+}
+.first-screen__prices__notice__logo {
+    width: max(50px, 7rem);
+}
+.first-screen__prices__notice__logo img {
+    width: 100%;
+    filter: drop-shadow(0 0 20px rgba(176, 4, 9, 0.95));
+}
+.first-screen__prices__notice p {
+    opacity: .6;
+    margin-top: .6rem;
+    font-size: max(14px, 1.6rem);
+}
+.main-price-block__row {
+    display: flex;
+    margin-top: 3rem;
+}
+.main-price-block__row .btn {
+    flex-grow: 1;
 }
 .delivery-notice {
     font-size: 1.4rem;
@@ -1279,7 +1343,20 @@ a {
     .footer__grid {
         grid-template-columns: repeat(4, 1fr);
     }
+    .header__center {
+        flex-grow: unset;
+    }
+    .app-btn {
+        border-radius: 12px;
+    }
+    .app-btn__right {
+        display: none;
+    }
+    .app-btn__left__icon {
+        width: 30px;
+    }
 }
+/*1200*/
 
 @media(max-width: 1100px) and (min-width: 811px) {
     .main-price-block__row {
@@ -1375,9 +1452,6 @@ a {
         position: static;
         font-size: 14px;
         margin-top: 10px;
-    }
-    .first-screen__prices__content {
-        margin-top: 30px;
     }
     .main-price-block .h5,
     .first-screen__prices__notice .h5{
@@ -1636,7 +1710,6 @@ a {
         gap: 40px;
     }
     .footer__grid__item--social {
-        align-items: flex-start;
         justify-content: flex-start;
     }
     .footer {
@@ -1648,7 +1721,9 @@ a {
     .footer__grid__item .h5 {
         margin-bottom: 15px;
     }
-
+    .header__left {
+        gap: 30px;
+    }
 }
 /*810*/
 @media(max-width: 640px) {
@@ -1676,7 +1751,36 @@ a {
     .hero__video {
         min-height: 50%;
     }
+    .first-screen__prices {
+        align-items: flex-start;
+    }
+    .first-screen__prices__content {
+        max-width: unset;
+    }
 }
+/*640*/
+@media(width < 480px) {
+    .header .logo {
+        width: 70px;
+    }
+    .app-btn__left__text {
+        font-size: 14px;
+    }
+    .app-btn {
+        padding: 5px 7px;
+    }
+    .lang-switcher__code,
+    .lang-switcher__chevron{
+        display: none;
+    }
+    .header__right {
+        gap: 10px;
+    }
+    .header .container {
+        padding: 0 10px;
+    }
+}
+/*480*/
 @media(width < 410px) {
     .why-lactate {
         background: url('./images/lactate_bg_mobile.webp') center 100% no-repeat;
