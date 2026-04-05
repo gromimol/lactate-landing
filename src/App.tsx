@@ -7,7 +7,10 @@ function getPage(): 'landing' | 'faq' {
 }
 
 export function App() {
-  const [lang, setLang] = useState<Lang>('ru');
+  const [lang, setLang] = useState<Lang>(() => {
+    const params = new URLSearchParams(window.location.search);
+    return params.get('lang') === 'en' ? 'en' : 'ru';
+  });
   const [page, setPage] = useState<'landing' | 'faq'>(getPage);
 
   useEffect(() => {
